@@ -1,7 +1,8 @@
 import React from 'react';
-import { alpha, makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
+import { alpha, makeStyles } from '@material-ui/core/styles';
+import { Grid, Tooltip, Paper } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -14,6 +15,10 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import EmailIcon from '@material-ui/icons/Email';
+import DescriptionIcon from '@material-ui/icons/Description';
+
+import Pdf from '../resources/Matthew_Serna_CV.pdf';
+import Logo from '../resources/matthew_serna_logo.png';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -78,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     linksSection: {
-        marginLeft: 'auto',
+      marginLeft: 'auto',
     }
   }));
 
@@ -101,29 +106,61 @@ HideOnScroll.propTypes = {
 const HideAppBar = (props) => {
     const classes = useStyles();
 
+    const onResumeClick = () => {
+      window.open(Pdf);
+    };
+
+    var sectionStyle = {
+      backgroundRepeat: 'no-repeat',
+      backgroundColor: '#152e3f',
+      backgroundSize: 'contain',
+      minHeight: 50
+    }
+
+    var logoStyle = {
+      backgroundColor: '#fbfbf8 '
+    }
+    
+    var logoText = {
+      color: '#152e3f'
+    };
+
     return (
         <div className={classes.root}>
             <React.Fragment>
             <CssBaseline />
             <HideOnScroll {...props}>
-                <AppBar>
-                <Toolbar>
-                    <Typography variant="h6">Logo Placeholder</Typography>
+                <AppBar style={sectionStyle}>
+                <Toolbar className={classes.customizeToolbar}>
+                    <div>
+                      <Grid>
+                          <p>Matthew<br/>Serna</p>
+                      </Grid>
+                    </div>
                     <Button color="inherit">Projects</Button>
                     <Button color="inherit">Experience</Button>
+                    <Button color="inherit">Contact Me</Button>
                     <div className={classes.linksSection}>
-                        <IconButton  color="inherit">
-                            <GitHubIcon />
+                      <Tooltip title="Github profile" arrow>
+                        <IconButton  color="inherit" onClick={() => window.open('https://github.com/mserna')}>
+                          <GitHubIcon />
                         </IconButton>
-                        <IconButton color="inherit">
-                            <LinkedInIcon />
+                      </Tooltip>
+                      <Tooltip title="LinkedIn profile" arrow>
+                        <IconButton color="inherit" onClick={() => window.open('https://www.linkedin.com/in/matthew-serna-46a1a073/')}>
+                          <LinkedInIcon />
                         </IconButton>
-                        <IconButton color="inherit">
-                            <MusicNoteIcon />
+                      </Tooltip>
+                      <Tooltip title="My music(coming soon)" arrow>
+                        <IconButton color="inherit" label="My music(coming soon)">
+                          <MusicNoteIcon />
                         </IconButton>
-                        <IconButton color="inherit">
-                            <EmailIcon />
+                      </Tooltip>
+                      <Tooltip title="My Resume/CV" arrow>
+                        <IconButton color="inherit" onClick={onResumeClick}>
+                          <DescriptionIcon />
                         </IconButton>
+                      </Tooltip>
                     </div>
                 </Toolbar>
                 </AppBar>
