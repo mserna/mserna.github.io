@@ -1,5 +1,5 @@
 import React from "react";
-import { Grow, Fade } from "@material-ui/core";
+import { Grow, Fade, makeStyles} from "@material-ui/core";
 import { useEffect, useState } from "react";
 
 import '../index.css';
@@ -27,26 +27,24 @@ const Banner = () => {
                         </span>
                         </h1>
                     </Grow>
+                </div>
+                <div>
                     <Grow in={bannerGrow} timeout={timeout2}>
-                        <div className="header-wrapper">
-                        <h2>
-                            I am a passionate software engineer with interests in
-                            mobile development, backend services, and anything music related.
-                        </h2>
-                    <Grow in={bannerGrow} timeout={timeout2}>
-                        <h3>
-                            Top right! Those are my socials.
-                        </h3>
-                    </Grow>
-                    <Grow in={bannerGrow} timeout={timeout2}>
-                    <h3>
-                        Down below you can learn more about me and my work history <t/>
-                        <span role="img" aria-label="Emoji">
-                            👇
-                        </span>
-                    </h3>
-                    </Grow>
-                    </div>
+                        <div className="container">
+                            <h2>
+                                I am a passionate software engineer with interests in
+                                mobile development, backend development, automation and anything music/audio related.
+                            </h2>
+                            <Grow in={bannerGrow} timeout={timeout2}>
+                                <h3 className="highlight-text">
+                                    Top right! Those are my socials. <br/>
+                                    Down below you can learn more about me<t/>
+                                    <span role="img" aria-label="Emoji">
+                                        👇
+                                    </span>
+                                </h3>
+                            </Grow>
+                        </div>
                     </Grow>
                 </div>
             </div>

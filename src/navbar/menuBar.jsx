@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { alpha, makeStyles } from '@material-ui/core/styles';
@@ -112,18 +113,10 @@ const HideAppBar = (props) => {
 
     var sectionStyle = {
       backgroundRepeat: 'no-repeat',
-      backgroundColor: '#152e3f',
+      backgroundColor: '#1F7077',
       backgroundSize: 'contain',
       minHeight: 50
     }
-
-    var logoStyle = {
-      backgroundColor: '#fbfbf8 '
-    }
-    
-    var logoText = {
-      color: '#152e3f'
-    };
 
     return (
         <div className={classes.root}>
@@ -137,9 +130,9 @@ const HideAppBar = (props) => {
                           <p>Matthew<br/>Serna</p>
                       </Grid>
                     </div>
-                    <Button color="inherit">Projects</Button>
-                    <Button color="inherit">Experience</Button>
-                    <Button color="inherit">Contact Me</Button>
+                    {/* <Button color="inherit">Experience</Button> */}
+                    {/* <Button color="inherit">Projects</Button>
+                    <Button color="inherit">Contact Me</Button> */}
                     <div className={classes.linksSection}>
                       <Tooltip title="Github profile" arrow>
                         <IconButton  color="inherit" onClick={() => window.open('https://github.com/mserna')}>
