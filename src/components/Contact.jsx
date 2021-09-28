@@ -9,7 +9,8 @@ import '../index.css';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      color: "#ffffff"
+      color: "#ffffff",
+      backgroundColor: "#164773"
     },
     paper: {
       padding: theme.spacing(2),

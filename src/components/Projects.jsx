@@ -7,6 +7,7 @@ import BgImage from "../resources/cool-background.png";
 import WridrLogo from "../resources/wridr-icon.png";
 import HobbyMeLogo from "../resources/hobbyme-icon.PNG";
 import TabMakerLogo from "../resources/tabmaker-icon.png";
+import HankAaronLogo from "../resources/al_nl.jpg"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,7 +48,7 @@ const Projects = () => {
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
                         <Grow in={bannerGrow} timeout={timeout2}>
                             <div>
-                                <img src={TabMakerLogo} width="300" height="200" className="center"/>
+                                <img src={TabMakerLogo} width="100" height="150" className="center"/>
                                 <h2 className="highlight-text">
                                     TabMaker | Mobile Application
                                 </h2>
@@ -61,7 +62,21 @@ const Projects = () => {
                         </Grow>
                         <Grow in={bannerGrow} timeout={timeout2}>
                             <div>
-                                <img src={HobbyMeLogo} width="200" height="200" className="center"/>
+                                <img src={HankAaronLogo} width="250" height="150" className="center"/>
+                                <h2 className="highlight-text">
+                                    Baseball Analytics Tool | React Web Application
+                                </h2>
+                                <Grow in={bannerGrow} timeout={timeout2}>
+                                    <h3 className="highlight-text">
+                                    2021<br/>
+                                    <a href="https://github.com/mserna/baseball_analytics">Github</a>
+                                    </h3>
+                                </Grow>
+                            </div>
+                        </Grow>
+                        <Grow in={bannerGrow} timeout={timeout2}>
+                            <div>
+                                <img src={HobbyMeLogo} width="100" height="100" className="center"/>
                                 <h2 className="highlight-text">
                                     HobbyMe | iOS Mobile Application
                                 </h2>
