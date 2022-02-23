@@ -7,7 +7,8 @@ import BgImage from "../resources/cool-background.png";
 import WridrLogo from "../resources/wridr-icon.png";
 import HobbyMeLogo from "../resources/hobbyme-icon.PNG";
 import TabMakerLogo from "../resources/tabmaker-icon.png";
-import HankAaronLogo from "../resources/al_nl.jpg"
+import HankAaronLogo from "../resources/al_nl.jpg";
+import MLBLogo from "../resources/MLB-Logo.png";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -62,9 +63,23 @@ const Projects = () => {
                         </Grow>
                         <Grow in={bannerGrow} timeout={timeout2}>
                             <div>
-                                <img src={HankAaronLogo} width="250" height="150" className="center"/>
+                                <img src={MLBLogo} width="250" height="150" className="center"/>
                                 <h2 className="highlight-text">
-                                    Baseball Analytics Tool | React Web Application
+                                    MLB Statcast App | React Web Application
+                                </h2>
+                                <Grow in={bannerGrow} timeout={timeout2}>
+                                    <h3 className="highlight-text">
+                                    2021<br/>
+                                    <a href="https://github.com/mserna/mlb-pitcher-statcast/tree/master/question_3">Github</a>
+                                    </h3>
+                                </Grow>
+                            </div>
+                        </Grow>
+                        <Grow in={bannerGrow} timeout={timeout2}>
+                            <div>
+                                <img src={MLBLogo} width="250" height="150" className="center"/>
+                                <h2 className="highlight-text">
+                                    MLB Analytics App (in progress) | React Web Application
                                 </h2>
                                 <Grow in={bannerGrow} timeout={timeout2}>
                                     <h3 className="highlight-text">

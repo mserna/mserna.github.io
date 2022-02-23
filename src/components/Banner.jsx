@@ -31,13 +31,16 @@ const Banner = () => {
                 <div>
                     <Grow in={bannerGrow} timeout={timeout2}>
                         <div className="container">
-                            <h2>
+                            <h2 className="highlight-text">
                                 I am a passionate software engineer with interests in
                                 mobile development, backend development, automation and anything music/audio related.
                             </h2>
                             <Grow in={bannerGrow} timeout={timeout2}>
                                 <h3 className="highlight-text">
-                                    Top right! Those are my socials. <br/>
+                                    Top right! Those are my socials.
+                                    <span role="img" aria-label="Emoji">
+                                        ☝️
+                                    </span> <br/>
                                     Down below you can learn more about me<t/>
                                     <span role="img" aria-label="Emoji">
                                         👇
