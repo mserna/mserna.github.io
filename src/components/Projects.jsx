@@ -7,7 +7,7 @@ import BgImage from "../resources/cool-background.png";
 import WridrLogo from "../resources/wridr-icon.png";
 import HobbyMeLogo from "../resources/hobbyme-icon.PNG";
 import TabMakerLogo from "../resources/tabmaker-icon.png";
-import HankAaronLogo from "../resources/al_nl.jpg";
+import UnrealLogo from "../resources/Unreal_Engine-Logo.png"
 import MLBLogo from "../resources/MLB-Logo.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -49,13 +49,13 @@ const Projects = () => {
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
                         <Grow in={bannerGrow} timeout={timeout2}>
                             <div>
-                                <img src={TabMakerLogo} width="100" height="150" className="center"/>
+                                <img src={UnrealLogo} width="100" height="150" className="center"/>
                                 <h2 className="highlight-text">
-                                    TabMaker | Mobile Application
+                                    Untitled Video Game Project
                                 </h2>
                                 <Grow in={bannerGrow} timeout={timeout2}>
                                     <h3 className="highlight-text">
-                                    2021 (in progress)<br/>
+                                    2022 (in progress)<br/>
                                     <a href="">Github</a>
                                     </h3>
                                 </Grow>
@@ -71,20 +71,6 @@ const Projects = () => {
                                     <h3 className="highlight-text">
                                     2021<br/>
                                     <a href="https://github.com/mserna/mlb-pitcher-statcast/tree/master/question_3">Github</a>
-                                    </h3>
-                                </Grow>
-                            </div>
-                        </Grow>
-                        <Grow in={bannerGrow} timeout={timeout2}>
-                            <div>
-                                <img src={MLBLogo} width="250" height="150" className="center"/>
-                                <h2 className="highlight-text">
-                                    MLB Analytics App (in progress) | React Web Application
-                                </h2>
-                                <Grow in={bannerGrow} timeout={timeout2}>
-                                    <h3 className="highlight-text">
-                                    2021<br/>
-                                    <a href="https://github.com/mserna/baseball_analytics">Github</a>
                                     </h3>
                                 </Grow>
                             </div>
