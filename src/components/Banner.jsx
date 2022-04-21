@@ -1,5 +1,11 @@
 import React from "react";
-import { Grow, Fade, makeStyles} from "@material-ui/core";
+import { 
+    Grow,
+    IconButton,
+    Typography,
+} from "@material-ui/core";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import WorkIcon from '@mui/icons-material/Work';
 import { useEffect, useState } from "react";
 
 import '../index.css';
@@ -7,6 +13,8 @@ import '../index.css';
 const Banner = () => {
 
     const [bannerGrow, setBannerGrow] = useState(false);
+    const summaryText = "I am a passionate software engineer with interests in mobile development, API development, automation and music."
+    const name = "Matthew Serna"
 
     useEffect(() => {
         setBannerGrow(true);
@@ -16,40 +24,22 @@ const Banner = () => {
     var timeout2 = 2500;
 
     return(
-        <div className="section" id="home">
-            <div className="container">
-                <div className="header-wrapper">
-                    <Grow in={bannerGrow} timeout={timeout}>
-                        <h1>
-                        Hi, I'm Matt <t/>
-                        <span role="img" aria-label="Emoji">
-                            🧙
-                        </span>
-                        </h1>
-                    </Grow>
-                </div>
-                <div>
-                    <Grow in={bannerGrow} timeout={timeout2}>
-                        <div className="container">
-                            <h2 className="highlight-text">
-                                I am a passionate software engineer with interests in
-                                mobile development, backend development, automation and anything music/audio related.
-                            </h2>
-                            <Grow in={bannerGrow} timeout={timeout2}>
-                                <h3 className="highlight-text">
-                                    Top right! Those are my socials.
-                                    <span role="img" aria-label="Emoji">
-                                        ☝️
-                                    </span> <br/>
-                                    Down below you can learn more about me<t/>
-                                    <span role="img" aria-label="Emoji">
-                                        👇
-                                    </span>
-                                </h3>
-                            </Grow>
-                        </div>
-                    </Grow>
-                </div>
+        <div className="banner" id="home">
+            <div className="sub-banner">
+                <Grow in={bannerGrow} timeout={timeout}>
+                    <Typography variant="h1">{name}</Typography>
+                </Grow>
+                <Grow in={bannerGrow} timeout={timeout2}>
+                    <div className="container">
+                        <h2 className="highlight-text">{summaryText}</h2>
+                        <IconButton color="#000000">
+                            Github<GitHubIcon></GitHubIcon>
+                        </IconButton>
+                        <IconButton color="#000000">
+                            Projects<WorkIcon></WorkIcon>
+                        </IconButton>
+                    </div>
+                </Grow>
             </div>
         </div>
     );

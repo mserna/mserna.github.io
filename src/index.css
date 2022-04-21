@@ -1,3 +1,64 @@
+/* ------------------------------------------------------------------ */
+/* b. Header Styles
+/* ------------------------------------------------------------------ */
+
+.banner {
+  position: relative;
+  height: 900px;
+  min-height: 500px;
+  width: 100%;
+  
+  text-align: center;
+  overflow: hidden;
+}
+
+/* vertically center banner section */
+.banner:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+.sub-banner {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  width: 85%;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.row-container {
+  vertical-align: middle;
+  margin: 0 auto;
+  width: 85%;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.info {
+  font: 16px/24px 'librebaskerville-italic', serif;
+  color: #6E7881;
+  margin-bottom: 18px;
+  margin-top: 9px;
+}
+.info span {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.line-spacer {
+  height: 670px;
+  width: 2px;
+  background-color: black;
+  margin: 0 20px;
+  display: inline-block;
+}
+
+.left-col { padding-right: 50%; }
+
+.right-col { padding-left: 50%; }
+
 body {
   margin: 0;
   background-color: "#164773";
@@ -86,8 +147,8 @@ a { cursor: pointer; }
 }
 
 .highlight-text {
-  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black; 
-  color: white;
+  text-shadow: 0 0 1px white; 
+  color: black;
   text-align: center;
   flex-grow: 1;
 }

@@ -14,8 +14,6 @@ function App() {
       <div className="container pt-4 pb-4">
         <Switch>
           <Route exact path="/" component={Home}/>
-          {/* <Route exact path="/projects" component={Projects}/> */}
-          {/* <Route exact path="/experience" component={Experience}/> */}
           <Redirect from="*" to="/" />
         </Switch>
       </div>

@@ -113,7 +113,7 @@ const HideAppBar = (props) => {
 
     var sectionStyle = {
       backgroundRepeat: 'no-repeat',
-      backgroundColor: '#1F7077',
+      backgroundColor: '#2A3439',
       backgroundSize: 'contain',
       minHeight: 50
     }
@@ -130,9 +130,6 @@ const HideAppBar = (props) => {
                           <p>Matthew<br/>Serna</p>
                       </Grid>
                     </div>
-                    {/* <Button color="inherit">Experience</Button> */}
-                    {/* <Button color="inherit">Projects</Button>
-                    <Button color="inherit">Contact Me</Button> */}
                     <div className={classes.linksSection}>
                       <Tooltip title="Github profile" arrow>
                         <IconButton  color="inherit" onClick={() => window.open('https://github.com/mserna')}>

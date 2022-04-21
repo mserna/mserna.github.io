@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 import { Paper } from '@material-ui/core';
+import ParticlesBg from "particles-bg";
 
 import Banner from "../components/Banner";
 import Projects from "../components/Projects";
@@ -11,11 +12,9 @@ import Contact from '../components/Contact';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
-      backgroundImage: `url(${BgImage})`,
+      // flexGrow: 1,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'auto',
-      minHeight: '1600px'
     },
     paper: {
       padding: theme.spacing(2),
@@ -26,17 +25,20 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
     const classes = useStyles();
+    const numShapes = 25;
 
     return (
+        <>
+        <ParticlesBg num={numShapes} type="cobweb" bg={true} color="#2A3439"/>
         <div className={classes.root}>
             <Banner></Banner>
-            <br/>
             <Experience></Experience>
             <br/>
             <Projects></Projects>
             <br/>
             <Contact></Contact>
         </div>
+        </>
     );
 }
 
