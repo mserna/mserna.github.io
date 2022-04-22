@@ -6,8 +6,8 @@ import ParticlesBg from "particles-bg";
 
 import Banner from "../components/Banner";
 import Projects from "../components/Projects";
-import BgImage from "../resources/cool-background-img.png";
 import Experience from '../components/Experience';
+import Skills from '../components/Skills';
 import Contact from '../components/Contact';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +35,8 @@ const Home = () => {
             <Experience></Experience>
             <br/>
             <Projects></Projects>
+            <br/>
+            <Skills></Skills>
             <br/>
             <Contact></Contact>
         </div>

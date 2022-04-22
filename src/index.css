@@ -36,6 +36,16 @@
   text-align: center;
 }
 
+.skill-container {
+  vertical-align: middle;
+  margin: 0 auto;
+  width: 85%;
+  max-width: 1000px;
+  max-height: 1000px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
 .info {
   font: 16px/24px 'librebaskerville-italic', serif;
   color: #6E7881;
@@ -149,6 +159,13 @@ a { cursor: pointer; }
 .highlight-text {
   text-shadow: 0 0 1px white; 
   color: black;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.highlight-text-white {
+  text-shadow: 0 0 1px black 0 0 1px black 0 0 1px black; 
+  color: white;
   text-align: center;
   flex-grow: 1;
 }

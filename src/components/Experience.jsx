@@ -6,26 +6,12 @@ import ESLogo from "../resources/Element-Science-Logo.png";
 import CiscoLogo from "../resources/cisco-icon.png";
 import AutodeskLogo from "../resources/autodesk-icon.png";
 import VitalLogo from "../resources/vital-icon.png";
-import BFLogo from "../resources/bf-icon.png";
+import BFLogo from "../resources/bf-logo.jpg";
 
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-      backgroundSize: 'auto',
-      minHeight: '400px'
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    }
-}));
 
 const Experience = () => {
 
     const [bannerGrow, setBannerGrow] = useState(false);
-    const classes = useStyles();
     const coursework = "Relevant Coursework: Data Structures, Algorithms, Programming Methodology, Software Development using Android Studio, Machine Structures, Operating Systems, Game Development using Unity, Machine Learning Development"
     const rightCol = "nine columns right-col";
     const leftCol = "nine columns left-col";

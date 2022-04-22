@@ -6,15 +6,16 @@ import {
 } from "@material-ui/core";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WorkIcon from '@mui/icons-material/Work';
-import { useEffect, useState } from "react";
+import { useEffect, useState, createRef, useRef } from "react";
 
 import '../index.css';
 
 const Banner = () => {
 
     const [bannerGrow, setBannerGrow] = useState(false);
-    const summaryText = "I am a passionate software engineer with interests in mobile development, API development, automation and music."
-    const name = "Matthew Serna"
+    const summaryText = "I am a passionate software engineer with interests in mobile development, API development, automation and music.";
+    const name = "Matthew Serna";
+    const projects = document.getElementById("projects");
 
     useEffect(() => {
         setBannerGrow(true);
@@ -32,10 +33,10 @@ const Banner = () => {
                 <Grow in={bannerGrow} timeout={timeout2}>
                     <div className="container">
                         <h2 className="highlight-text">{summaryText}</h2>
-                        <IconButton color="#000000">
+                        <IconButton color="#000000" onClick={() => window.open('https://github.com/mserna')}>
                             Github<GitHubIcon></GitHubIcon>
                         </IconButton>
-                        <IconButton color="#000000">
+                        <IconButton color="#000000" onClick={() => projects.scrollIntoView()}>
                             Projects<WorkIcon></WorkIcon>
                         </IconButton>
                     </div>
