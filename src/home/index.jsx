@@ -1,47 +1,77 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core';
-import { Grid } from '@material-ui/core';
-import { Paper } from '@material-ui/core';
-import ParticlesBg from "particles-bg";
+import React, { useEffect, useState } from 'react';
 
+// local imports
 import Banner from "../components/Banner";
 import Projects from "../components/Projects";
 import Experience from '../components/Experience';
 import Skills from '../components/Skills';
 import Contact from '../components/Contact';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      // flexGrow: 1,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'auto',
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-}));
-
 const Home = () => {
-    const classes = useStyles();
-    const numShapes = 25;
+  // States used to detect scrolling pagination
+  const [scrolling, setScrolling] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
 
-    return (
-        <>
-        <ParticlesBg num={numShapes} type="cobweb" bg={true} color="#2A3439"/>
-        <div className={classes.root}>
-            <Banner></Banner>
-            <Experience></Experience>
-            <br/>
-            <Projects></Projects>
-            <br/>
-            <Skills></Skills>
-            <br/>
-            <Contact></Contact>
-        </div>
-        </>
-    );
+  const onScroll = (e) => {
+    setScrollTop(e.target.documentElement.scrollTop);
+    setScrolling(e.target.documentElement.scrollTop > scrollTop);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+  },[]);
+
+  // This will handle list being updated due to pagination
+  useEffect(() => {
+    var offset = scrollTop;
+    var windowHeight = window.innerHeight;
+    var body = document.body;
+    let padding = 0.75;
+    let pages = ['1', '2', '3', '4', '5'];
+
+    pages.map((page) => {
+      console.log(offset+" > " + `( ${windowHeight} * (${page-2} + ${padding})`);
+      if(offset > (windowHeight * (page - 2 + padding))) { 
+        console.log(body.classList);
+        body.className = "";
+        body.classList.add("page-" + page);
+      }
+    });
+  }, [scrollTop]);
+    
+  return(
+    <>
+      <div className="main">
+        <section className="page" id="page1">
+          <Banner></Banner>
+        </section>
+
+        <section className="page" id="page2">
+          <h1>Page 2</h1>
+        </section>
+
+        <section className="page" id="page3">
+          <h1>Page 3</h1>
+        </section>
+
+        <section className="page" id="page4">
+          <h1>Page 4</h1>
+        </section>
+
+        <section className="page" id="page5">
+          <h1>Page 5</h1>
+        </section>
+      </div>
+
+      <ul id="pagination">
+        <li><a href="#page1"></a></li>
+        <li><a href="#page2"></a></li>
+        <li><a href="#page3"></a></li>
+        <li><a href="#page4"></a></li>
+        <li><a href="#page5"></a></li>
+      </ul>
+    </>
+  )
 }
 
 export { Home };

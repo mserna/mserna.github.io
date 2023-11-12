@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import { 
     Grow,
     IconButton,
@@ -11,7 +11,6 @@ import { useEffect, useState, createRef, useRef } from "react";
 import '../index.css';
 
 const Banner = () => {
-
     const [bannerGrow, setBannerGrow] = useState(false);
     const summaryText = "I am a passionate software engineer with interests in mobile development, API development, automation and music.";
     const name = "Matthew Serna";
@@ -20,7 +19,7 @@ const Banner = () => {
     useEffect(() => {
         setBannerGrow(true);
     }, []);
-
+    
     var timeout = 1000;
     var timeout2 = 2500;
 
@@ -33,10 +32,10 @@ const Banner = () => {
                 <Grow in={bannerGrow} timeout={timeout2}>
                     <div className="container">
                         <h2 className="highlight-text">{summaryText}</h2>
-                        <IconButton color="#000000" onClick={() => window.open('https://github.com/mserna')}>
+                        <IconButton onClick={() => window.open('https://github.com/mserna')}>
                             Github<GitHubIcon></GitHubIcon>
                         </IconButton>
-                        <IconButton color="#000000" onClick={() => projects.scrollIntoView()}>
+                        <IconButton onClick={() => projects.scrollIntoView()}>
                             Projects<WorkIcon></WorkIcon>
                         </IconButton>
                     </div>
