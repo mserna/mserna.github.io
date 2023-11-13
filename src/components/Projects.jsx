@@ -1,27 +1,58 @@
 import React from "react";
-import { Grow, Fade, makeStyles } from "@material-ui/core";
+import { Grow, makeStyles, IconButton, Button } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import Carousel from 'react-material-ui-carousel';
 
-import '../index.css';
-import GithubLogo from "../resources/git-white.png";
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundColor: "#2A3439",
-      minHeight: '400px'
-    },
     paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
+        flexGrow: 1,
+        width: '100%',
+        height: '100%',
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: "#ffffff",
     },
+    banner: {
+        height: '100%',
+        position: 'relative'
+    }
 }));
 
-const Projects = () => {
+const Project = (props) => {
+    const classes = useStyles();
 
+    return (
+        <div>
+            <h2>{props.project.name}</h2>
+            <p>{props.project.description}</p>
+            <IconButton  color="inherit" onClick={() => window.open(props.project.link)}>
+                <GitHubIcon />
+            </IconButton>
+            <Button className={classes.paper}>
+                Check it out!
+            </Button>
+        </div>
+    );
+}
+
+const Award = (props) => {
+    const classes = useStyles();
+
+    return (
+        <div>
+            <h2>{props.award.name}</h2>
+            <p>{props.award.description}</p>
+            <IconButton  color="inherit" onClick={() => window.open(props.award.link)}>
+                <LaunchIcon />
+            </IconButton>
+        </div>
+    );
+}
+
+const  MyCarousel = () => {
     const [bannerGrow, setBannerGrow] = useState(false);
     const classes = useStyles();
 
@@ -29,66 +60,63 @@ const Projects = () => {
         setBannerGrow(true);
     }, []);
 
-    var timeout = 1000;
-    var timeout2 = 2500;
+    let timeout = 1000;
+
+    let projects = [
+        {
+            name: "Baseball Pitcher Statcast",
+            description: "Stats view of pitchers across the league",
+            link: "https://github.com/mserna/mlb-pitcher-statcast"
+        },
+        {
+            name: "HobbyMe",
+            description: "Mobile application that allows users with similar hobbies to network",
+            link: "https://github.com/mserna/Hobby_Me"
+        },
+        {
+            name: "Wridr",
+            description: "Mobile application for sharing ridesharing stories",
+            link: "https://github.com/mserna/Wridr"
+        }
+    ];
+
+    let awards = [
+        {
+            name: "TechCrunch",
+            description: "Recognition for SafeZone mobile application",
+            link: "https://techcrunch.com/2016/09/11/safezone-guides-you-to-safe-spaces-in-crises/"
+        },
+        {
+            name: "SFSU COSE Showcase – 3rd place in Overall Competition",
+            description: "For an Android mobile application called SafeZone, which allowed users to alert first responders during emergencies",
+            link: "https://techcrunch.com/2016/09/11/safezone-guides-you-to-safe-spaces-in-crises/"
+        }
+    ]
 
     return(
-        <div className={classes.root}>
-            <div className="section" id="projects">
-                <div className="container">
-                    <Grow in={bannerGrow} timeout={timeout}>
-                        <h1 className="highlight-text-white">
-                        Projects
-                        </h1>
-                    </Grow>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
-                        <Grow in={bannerGrow} timeout={timeout2}>
-                            <div>
-                                <img src={GithubLogo} width="250" height="130" className="center"/>
-                                <h2 className="highlight-text-white">
-                                    MLB Statcast | React
-                                </h2>
-                                <Grow in={bannerGrow} timeout={timeout2}>
-                                    <h3 className="highlight-text-white">
-                                    2021<br/>
-                                    <a className="highlight-text-white" href="https://github.com/mserna/mlb-pitcher-statcast/tree/master/question_3">Github</a>
-                                    </h3>
-                                </Grow>
-                            </div>
-                        </Grow>
-                        <Grow in={bannerGrow} timeout={timeout2}>
-                            <div>
-                                <img src={GithubLogo} width="250" height="130" className="center"/>
-                                <h2 className="highlight-text-white">
-                                    HobbyMe | iOS
-                                </h2>
-                                <Grow in={bannerGrow} timeout={timeout2}>
-                                    <h3 className="highlight-text-white">
-                                    2020<br/>
-                                    <a className="highlight-text-white" href="" onClick={() => window.open('https://github.com/mserna/Hobby_Me')}>Github</a>
-                                    </h3>
-                                </Grow>
-                            </div>
-                        </Grow>
-                        <Grow in={bannerGrow} timeout={timeout2}>
-                            <div>
-                                <img src={GithubLogo} width="250" height="130" className="center"/>
-                                <h2 className="highlight-text-white">
-                                    Wridr | iOS
-                                </h2>
-                                <Grow in={bannerGrow} timeout={timeout2}>
-                                    <h3 className="highlight-text-white">
-                                        2016<br/>
-                                        <a className="highlight-text-white" href="" onClick={() => window.open('https://github.com/mserna/Wridr')}>Github</a>
-                                    </h3>
-                                </Grow>
-                            </div>
-                        </Grow>
-                    </div>
-                </div>
-            </div>
+        <div className={classes.paper} id="projects">
+            <Grow in={bannerGrow} timeout={timeout}>
+                <h1 className="highlight-text-white">
+                Projects
+                </h1>
+            </Grow>
+            <Carousel>
+                {
+                    projects.map( (item, i) => <Project key={i} project={item} /> )
+                }
+            </Carousel>
+            {/* <Grow in={bannerGrow} timeout={timeout}>
+                <h1 className="highlight-text-white">
+                Awards/Recognitions
+                </h1>
+            </Grow>
+            <Carousel style={{height: '80%', width: '80%'}}>
+                {
+                    awards.map( (item, i) => <Award key={i} award={item} /> )
+                }
+            </Carousel> */}
         </div>
     );
 }
 
-export default Projects;
+export default MyCarousel;

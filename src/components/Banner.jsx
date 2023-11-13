@@ -1,18 +1,14 @@
-import React, {useLayoutEffect} from "react";
+import React from "react";
 import { 
     Grow,
-    IconButton,
     Typography,
 } from "@material-ui/core";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import WorkIcon from '@mui/icons-material/Work';
-import { useEffect, useState, createRef, useRef } from "react";
-
-import '../index.css';
+import { useEffect, useState} from "react";
 
 const Banner = () => {
     const [bannerGrow, setBannerGrow] = useState(false);
-    const summaryText = "I am a passionate software engineer with interests in mobile development, API development, automation and music.";
+    const headline = "Hello, welcome to my website!";
+    const summary = "Here you will find what I've been doing with my life as well as some projects I have and will be working on. Enjoy!";
     const name = "Matthew Serna";
     const projects = document.getElementById("projects");
 
@@ -30,14 +26,9 @@ const Banner = () => {
                     <Typography variant="h1">{name}</Typography>
                 </Grow>
                 <Grow in={bannerGrow} timeout={timeout2}>
-                    <div className="container">
-                        <h2 className="highlight-text">{summaryText}</h2>
-                        <IconButton onClick={() => window.open('https://github.com/mserna')}>
-                            Github<GitHubIcon></GitHubIcon>
-                        </IconButton>
-                        <IconButton onClick={() => projects.scrollIntoView()}>
-                            Projects<WorkIcon></WorkIcon>
-                        </IconButton>
+                    <div className="container" style={{color: "#ffffff"}}>
+                        <Typography variant="h5">{headline}</Typography>
+                        <Typography variant="h5">{summary}</Typography>
                     </div>
                 </Grow>
             </div>

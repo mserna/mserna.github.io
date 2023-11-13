@@ -48,10 +48,11 @@ const Home = () => {
 
         <section className="page" id="page2">
           <h1>Page 2</h1>
+          {/* <Experience></Experience> Needs to be adjusted before implementing */}
         </section>
 
         <section className="page" id="page3">
-          <h1>Page 3</h1>
+          <Projects></Projects>
         </section>
 
         <section className="page" id="page4">
