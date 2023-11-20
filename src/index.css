@@ -4,7 +4,7 @@
 
 .banner {
   position: relative;
-  height: 100%;
+  height: 80%;
   min-height: 500px;
   width: 100%;
   
@@ -161,7 +161,7 @@ a { cursor: pointer; }
 /* Vertical  Srolling Pagination */
 .main section {
   margin: 0;
-  height: 100vh;
+  height: 120vh;
 }
 .main section:nth-child(1) {
   background-color: #3e5050;

@@ -30,9 +30,9 @@ const Home = () => {
     let pages = ['1', '2', '3', '4', '5'];
 
     pages.map((page) => {
-      console.log(offset+" > " + `( ${windowHeight} * (${page-2} + ${padding})`);
+      // console.log(offset+" > " + `( ${windowHeight} * (${page-2} + ${padding})`);
       if(offset > (windowHeight * (page - 2 + padding))) { 
-        console.log(body.classList);
+        // console.log(body.classList);
         body.className = "";
         body.classList.add("page-" + page);
       }

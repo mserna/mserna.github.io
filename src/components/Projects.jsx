@@ -1,122 +1,138 @@
 import React from "react";
-import { Grow, makeStyles, IconButton, Button } from "@material-ui/core";
+import { Grow, Card, makeStyles } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import Carousel from 'react-material-ui-carousel';
 
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LaunchIcon from '@mui/icons-material/Launch';
+import '../index.css';
+import GithubLogo from "../resources/git-white.png";
+import PitcherPlots from "../resources/pitcher-plots.png";
+import HobbyMe from "../resources/HobbyMe.png";
+import Wridr from "../resources/wridr.png";
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
-        flexGrow: 1,
-        width: '100%',
-        height: '100%',
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: "#ffffff",
+    root: {
+      flexGrow: 1,
+      backgroundRepeat: 'no-repeat',
+      backgroundColor: theme.palette.text.secondary, 
+      backgroundSize: 'cover',
+      minHeight: '400px'
     },
-    banner: {
-        height: '100%',
-        position: 'relative'
-    }
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+    image: {
+        flexGrow: 1,
+        display: "block",
+        paddingTop: "1rem",
+        marginLeft: "auto",
+        marginRight: "auto",
+    },
 }));
 
-const Project = (props) => {
-    const classes = useStyles();
+const GridLayout = (props) => {
+    const [cols, setGridCols] = useState(3);
 
-    return (
-        <div>
-            <h2>{props.project.name}</h2>
-            <p>{props.project.description}</p>
-            <IconButton  color="inherit" onClick={() => window.open(props.project.link)}>
-                <GitHubIcon />
-            </IconButton>
-            <Button className={classes.paper}>
-                Check it out!
-            </Button>
+    useEffect(() => {
+        // console.log(window.outerWidth);
+        if(window.outerWidth < 1000) {
+            setGridCols(2);
+        } else if(window.outerWidth >= 1000) {
+            setGridCols(3);
+        }
+    }, [window.outerWidth]);
+    
+    return(
+        <div style={{ display: "grid", gridTemplateColumns: `repeat(${cols}, 1fr)`, gridGap: 20 }}>
+            {props.allProjects}
         </div>
     );
 }
 
-const Award = (props) => {
-    const classes = useStyles();
+export {GridLayout};
 
-    return (
-        <div>
-            <h2>{props.award.name}</h2>
-            <p>{props.award.description}</p>
-            <IconButton  color="inherit" onClick={() => window.open(props.award.link)}>
-                <LaunchIcon />
-            </IconButton>
-        </div>
-    );
-}
+const Projects = () => {
 
-const  MyCarousel = () => {
     const [bannerGrow, setBannerGrow] = useState(false);
     const classes = useStyles();
-
+    
     useEffect(() => {
         setBannerGrow(true);
     }, []);
 
-    let timeout = 1000;
+    var timeout = 1000;
+    var timeout2 = 2500;
 
-    let projects = [
+    const projects = [
         {
-            name: "Baseball Pitcher Statcast",
-            description: "Stats view of pitchers across the league",
-            link: "https://github.com/mserna/mlb-pitcher-statcast"
+            key: 1,
+            name: "MLB Pitcher Plots | React",
+            image: PitcherPlots,
+            year: "2021",
+            description: "A React JS webpage that loads MLB pitcher data and visualizes it against other pitchers around the league.",
+            link: "https://github.com/mserna/mlb-pitcher-statcast/tree/master/question_3"
         },
         {
-            name: "HobbyMe",
-            description: "Mobile application that allows users with similar hobbies to network",
+            key: 2,
+            name: "HobbyMe | iOS",
+            image: HobbyMe,
+            year: "2020",
+            description: "A mobile application that allowed users to network, collaborate and meetup with others that shared similar hobbies.",
             link: "https://github.com/mserna/Hobby_Me"
         },
         {
-            name: "Wridr",
-            description: "Mobile application for sharing ridesharing stories",
+            key: 3,
+            name: "Wridr | iOS",
+            image: Wridr,
+            year: "2016",
+            description: "A social platform mobile application that allowed users to share ride-sharing stories using Twitter/X API.",
             link: "https://github.com/mserna/Wridr"
+        },
+        {
+            key: 4,
+            name: "Untitled Project Name",
+            image: GithubLogo,
+            year: "2024",
+            description: "In Progress",
+            link: "https://github.com/mserna/"
         }
     ];
 
-    let awards = [
-        {
-            name: "TechCrunch",
-            description: "Recognition for SafeZone mobile application",
-            link: "https://techcrunch.com/2016/09/11/safezone-guides-you-to-safe-spaces-in-crises/"
-        },
-        {
-            name: "SFSU COSE Showcase – 3rd place in Overall Competition",
-            description: "For an Android mobile application called SafeZone, which allowed users to alert first responders during emergencies",
-            link: "https://techcrunch.com/2016/09/11/safezone-guides-you-to-safe-spaces-in-crises/"
-        }
-    ]
+    const allProjects = projects.map((project) => {
+        return(
+            <Card className={classes.root}>
+                <img src={project.image} className={classes.image}/>
+                <h2 className="highlight-text-white">
+                    {project.name}
+                </h2>
+                <Grow in={bannerGrow} timeout={timeout2}>
+                    <h3 className="highlight-text-white">
+                    {project.year}
+                    <br/>
+                    <p className="highligh-text-white">{project.description}</p>
+                    <a className="highlight-text-white" href={project.link}>Github</a>
+                    </h3>
+                </Grow>
+            </Card>
+        );
+    });
 
     return(
-        <div className={classes.paper} id="projects">
-            <Grow in={bannerGrow} timeout={timeout}>
-                <h1 className="highlight-text-white">
-                Projects
-                </h1>
-            </Grow>
-            <Carousel>
-                {
-                    projects.map( (item, i) => <Project key={i} project={item} /> )
-                }
-            </Carousel>
-            {/* <Grow in={bannerGrow} timeout={timeout}>
-                <h1 className="highlight-text-white">
-                Awards/Recognitions
-                </h1>
-            </Grow>
-            <Carousel style={{height: '80%', width: '80%'}}>
-                {
-                    awards.map( (item, i) => <Award key={i} award={item} /> )
-                }
-            </Carousel> */}
+        <div>
+            <div className="section" id="projects">
+                <div className="container">
+                    <Grow in={bannerGrow} timeout={timeout}>
+                        <h1 className="highlight-text-white">
+                        Projects
+                        </h1>
+                    </Grow>
+                    <Grow in={bannerGrow} timeout={timeout2}>
+                        <GridLayout allProjects={allProjects}/>
+                    </Grow>
+                </div>
+            </div>
         </div>
     );
 }
 
-export default MyCarousel;
+export default Projects;
