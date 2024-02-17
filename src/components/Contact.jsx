@@ -38,7 +38,8 @@ const Contact = () => {
     const email = 'matthewserna714@gmail.com'
 
     return(
-        <div className={classes.root}>
+    <div>
+        <div className="section" id="contact">
             <div className='container'>
                 <Grow in={bannerGrow} timeout={timeout}>
                     <h1 className={classes.header}>
@@ -52,6 +53,7 @@ const Contact = () => {
                 </Grow>
             </div>
         </div>
+    </div>
     );
 }
 

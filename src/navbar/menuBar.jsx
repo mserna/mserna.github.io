@@ -1,24 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import { Grid, Tooltip, Paper } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
-import EmailIcon from '@material-ui/icons/Email';
-import DescriptionIcon from '@material-ui/icons/Description';
 
-import Pdf from '../resources/Matthew_Serna_CV.pdf';
 import Logo from '../resources/matthew_serna_logo.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -107,10 +101,6 @@ HideOnScroll.propTypes = {
 const HideAppBar = (props) => {
     const classes = useStyles();
 
-    const onResumeClick = () => {
-      window.open(Pdf);
-    };
-
     var sectionStyle = {
       backgroundRepeat: 'no-repeat',
       backgroundColor: '#2A3439',
@@ -144,11 +134,6 @@ const HideAppBar = (props) => {
                       <Tooltip title="My music(coming soon)" arrow>
                         <IconButton color="inherit" label="My music(coming soon)">
                           <MusicNoteIcon />
-                        </IconButton>
-                      </Tooltip>
-                      <Tooltip title="My Resume/CV" arrow>
-                        <IconButton color="inherit" onClick={onResumeClick}>
-                          <DescriptionIcon />
                         </IconButton>
                       </Tooltip>
                     </div>

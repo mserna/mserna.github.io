@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Banner from "../components/Banner";
 import Projects from "../components/Projects";
 import Experience from '../components/Experience';
-import Skills from '../components/Skills';
 import Contact from '../components/Contact';
 
 const Home = () => {
@@ -27,7 +26,7 @@ const Home = () => {
     var windowHeight = window.innerHeight;
     var body = document.body;
     let padding = 0.75;
-    let pages = ['1', '2', '3', '4', '5'];
+    let pages = ['1', '2', '3', '4'];
 
     pages.map((page) => {
       // console.log(offset+" > " + `( ${windowHeight} * (${page-2} + ${padding})`);
@@ -48,7 +47,7 @@ const Home = () => {
 
         <section className="page" id="page2">
           <h1>Page 2</h1>
-          {/* <Experience></Experience> Needs to be adjusted before implementing */}
+          <Experience></Experience>
         </section>
 
         <section className="page" id="page3">
@@ -56,11 +55,7 @@ const Home = () => {
         </section>
 
         <section className="page" id="page4">
-          <h1>Page 4</h1>
-        </section>
-
-        <section className="page" id="page5">
-          <h1>Page 5</h1>
+          <Contact></Contact>
         </section>
       </div>
 
@@ -69,7 +64,6 @@ const Home = () => {
         <li><a href="#page2"></a></li>
         <li><a href="#page3"></a></li>
         <li><a href="#page4"></a></li>
-        <li><a href="#page5"></a></li>
       </ul>
     </>
   )
