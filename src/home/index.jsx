@@ -46,7 +46,6 @@ const Home = () => {
         </section>
 
         <section className="page" id="page2">
-          <h1>Page 2</h1>
           <Experience></Experience>
         </section>
 

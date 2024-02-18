@@ -1,84 +1,57 @@
 import React from "react";
-import { Grow, Fade, makeStyles } from "@material-ui/core";
+import { Grow, Icon, SvgIcon, makeStyles } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import '../index.css';
-import ESLogo from "../resources/Element-Science-Logo.png";
-import CiscoLogo from "../resources/cisco-icon.png";
-import AutodeskLogo from "../resources/autodesk-icon.png";
-import VitalLogo from "../resources/vital-icon.png";
-import BFLogo from "../resources/bf-logo.jpg";
+import { 
+    Stack, 
+    Box,
+    ImageListItem,
+    List, 
+    ListItem, 
+    ListItemIcon,
+    ListItemButton,
+    ListItemText 
+} from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 
+import '../index.css';
+import ESLogo from "../resources/es-logo.svg";
+import CiscoLogo from "../resources/Cisco-logo.png";
+import AutodeskLogo from "../resources/autodesk.svg";
+import VitalLogo from "../resources/vital-logo.svg";
+import BFLogo from "../resources/bf-icon.png";
+import SDSLogo from "../resources/sds_light.png";
+import SFSULogo from "../resources/sfsu.png";
+
+const useStyles = makeStyles((theme) => ({
+    display: "grid", 
+    gridTemplateColumns: `repeat(2, 1fr)`, 
+    gridGap: 20
+}));
+
+const GridLayout = (props) => {
+    const [cols, setGridCols] = useState(3);
+
+    useEffect(() => {
+        // console.log(window.outerWidth);
+        if(window.outerWidth < 1000) {
+            setGridCols(2);
+        } else if(window.outerWidth >= 1000) {
+            setGridCols(3);
+        }
+    }, [window.outerWidth]);
+    
+    return(
+        <div style={{ display: "grid", gridTemplateColumns: `repeat(${cols}, 1fr)`, gridGap: 20 }}>
+            {props.content}
+        </div>
+    );
+}
 
 const Experience = () => {
-
+    const myStyle = useStyles();
     const [bannerGrow, setBannerGrow] = useState(false);
-    const coursework = "Relevant Coursework: Data Structures, Algorithms, Programming Methodology, Software Development using Android Studio, Machine Structures, Operating Systems, Game Development using Unity, Machine Learning Development"
-    const rightCol = "nine columns right-col";
-    const leftCol = "nine columns left-col";
-    const work = [
-        {
-            company: "Element Science",
-            position: "Software Engineer II",
-            date: "2019-",
-            url: "https://www.elementscience.com/",
-            image: ESLogo,
-            direction: leftCol
-        },
-        {
-            company: "Cisco",
-            position: "Software Engineer in Test",
-            date: "2019-2019 (contract)",
-            url: "https://www.cisco.com/",
-            image: CiscoLogo,
-            direction: rightCol
-        },
-        {
-            company: "Autodesk",
-            position: "Python Automation Engineer",
-            date: "2018-2019",
-            url: "https://www.autodesk.com/",
-            image: AutodeskLogo,
-            direction: leftCol
-        },
-        {
-            company: "Vital Enterprises",
-            position: "QA Software Engineer",
-            date: "2017-2018",
-            url: "https://www.vital.enterprises/",
-            image: VitalLogo,
-            direction: rightCol
-        },
-        {
-            company: "Blackfire Research",
-            position: "Software QA | Software Engineer",
-            date: "2016-2017",
-            url: "https://bfrx.com/",
-            image: BFLogo,
-            direction: leftCol
-        },
-    ];
-
-    const workHtml = work.map((work) => {
-        return (
-        <div>
-        <div className={work.direction}>
-            <div key={work.company}>
-            <a href={work.url}>
-                <img src={work.image} width="300" height="200" className="center"/>
-            </a>
-            <h3>{work.company}</h3>
-            <p className="info">
-                {work.position}
-                <span>&bull;</span> <em className="date">{work.date}</em>
-            </p>
-            </div>
-        </div>
-        <div className={work.direction == rightCol ? leftCol : rightCol}>
-            {work.description}
-        </div>
-        </div>
-        );
-      });
+    const coursework = <b>Relevant Coursework</b>;
+    const coursework2 = "Data Structures, Algorithms, Programming Methodology, Software Development using Android Studio, Machine Structures, Operating Systems, Game Development using Unity, Machine Learning Development";
 
     useEffect(() => {
         setBannerGrow(true);
@@ -86,31 +59,94 @@ const Experience = () => {
 
     var timeout = 1000;
 
+    const work = [
+        {
+            company: "Sony San Diego Studio",
+            position: "Frontend Logic Programmer",
+            date: "2022-",
+            url: "https://sonysandiegostudio.games/",
+            image: SDSLogo,
+        },
+        {
+            company: "Element Science",
+            position: "Software Engineer II",
+            date: "2019-2022",
+            url: "https://www.elementscience.com/",
+            image: ESLogo,
+        },
+        {
+            company: "Cisco",
+            position: "Software Engineer in Test",
+            date: "2019",
+            url: "https://www.cisco.com/",
+            image: CiscoLogo,
+        },
+        {
+            company: "Autodesk",
+            position: "Python Automation Engineer",
+            date: "2018-2019",
+            url: "https://www.autodesk.com/",
+            image: AutodeskLogo,
+        },
+        {
+            company: "Vital Enterprises",
+            position: "QA Software Engineer",
+            date: "2017-2018",
+            url: "https://www.vital.enterprises/",
+            image: VitalLogo,
+        },
+        {
+            company: "Blackfire Research",
+            position: "Software QA | Software Engineer",
+            date: "2016-2017",
+            url: "https://bfrx.com/",
+            image: BFLogo,
+        },
+    ];
+
+    const workHtml = work.map((work) => {
+        return (
+        <div style={{color:"#fff"}}>
+            <ListItem >
+            <ListItemButton onClick={() => {window.open(work.url)}}>
+                <ListItemIcon><img style={{width:'80px', height:'80px'}} src={work.image}></img></ListItemIcon>
+                <ListItemText primary={work.company} />
+            </ListItemButton>
+            <ListItemText style={{marginLeft: 0}} primary={work.position} />
+            <ListItemText style={{marginRight: 0}} primary={work.date} />
+            </ListItem>
+        </div>
+        );
+    });
+
     return(
-        <div className="row-container" id="experience">
-            <Grow in={bannerGrow} timeout={timeout}>
-                <h1>
-                Education
-                </h1>
-            </Grow>
-            <Grow in={bannerGrow} timeout={timeout}>
-                <div className="row-container">
-                    <h3>San Francisco State University</h3>
-                    <p className="info">
-                        B.S. Computer Science <span>&bull;</span>
-                        <em className="date">2017</em>
-                    </p>
-                    <p>{coursework}</p>
-                </div>
-            </Grow>
-            <Grow in={bannerGrow} timeout={timeout}>
-                <h1>
-                Work Experience
-                </h1>
-            </Grow>
-            <Grow in={bannerGrow} timeout={timeout}>
-                <div>{workHtml}</div>
-            </Grow>
+        <div>
+            <div className="section" id="experience">
+                <Grow in={bannerGrow} timeout={timeout}>
+                    <Box sx={{ flexGrow: 1}}>
+                        <h1>Work Experience</h1>
+                        <Grid container spacing={{xs:2, md:3}} columns={{xs:4, sm:8, md:12}}>
+                            <br/>
+                            <List sx={{ width: '75%', maxWidth: 900, marginLeft:"auto", marginRight:"auto"}}>
+                                {workHtml}
+                            </List>
+                        </Grid>
+                        
+                        <h1>School</h1>
+                        <Grid container spacing={{xs:2, md:3}} columns={{xs:4, sm:8, md:12}}>
+                            <br/>
+                            <List style={{color:"#fff"}} sx={{ width: '75%', maxWidth: 900, marginLeft:"auto", marginRight:"auto"}}>
+                                <ListItem>
+                                    &nbsp;&nbsp;<ListItemIcon><img style={{width:'80px', height:'80px'}} src={SFSULogo}></img></ListItemIcon>
+                                    &nbsp;&nbsp;<ListItemText primary="San Francisco State University"></ListItemText>
+                                    &nbsp;&nbsp;<ListItemText primary="B.S. Computer Science"></ListItemText>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<p>{coursework}: {coursework2}</p>
+                                </ListItem>
+                            </List>
+                        </Grid>
+                    </Box>
+                </Grow>
+            </div>
         </div>
     );
 }
