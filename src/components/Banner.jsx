@@ -8,6 +8,7 @@ import {
     Stack,
 } from "@mui/material";
 import { useEffect, useState} from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -39,17 +40,18 @@ const Banner = () => {
     const classes = useStyles();
     const headline = "Hello, welcome to my website!";
     const name = "Matthew Serna";
-    const projects = document.getElementById("projects");
-    const experience = document.getElementById("experience");
-    const contact = document.getElementById("contact");
 
     useEffect(() => {
         setBannerGrow(true);
     }, []);
     
     var timeout = 1000;
-    var timeout2 = 3500;
-    var timeout3 = 5500;
+    var timeout2 = 2500;
+
+    let history = useHistory();
+    const routeChange = (pathStr) => {
+        history.push(pathStr);
+    };
 
     return(
         <div className="banner" id="home">
@@ -63,11 +65,11 @@ const Banner = () => {
                         <br/>
                     </div>
                 </Grow>
-                <Grow in={bannerGrow} timeout={timeout3}>
+                <Grow in={bannerGrow} timeout={timeout2}>
                     <Stack className="container-body" spacing={2} direction="row" alignContent="center">
-                        <Button variant="contained" className={classes.buttonOne} onClick={() => experience.scrollIntoView()}>Experience</Button>
-                        <Button variant="contained" className={classes.buttonTwo} onClick={() => projects.scrollIntoView()}>Projects</Button>
-                        <Button variant="contained" className={classes.buttonThree} onClick={() => contact.scrollIntoView()}>Contact</Button>
+                        <Button variant="contained" className={classes.buttonOne} onClick={() => routeChange("experience")}>Experience</Button>
+                        <Button variant="contained" className={classes.buttonTwo} onClick={() => routeChange("projects")}>Projects</Button>
+                        <Button variant="contained" className={classes.buttonThree} href="mailto:matthewserna714@gmail.com">Contact</Button>
                     </Stack>
                 </Grow>
             </div>

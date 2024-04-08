@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { alpha, makeStyles } from '@material-ui/core/styles';
-import { Grid, Tooltip, Paper } from '@material-ui/core';
+import { Tooltip } from '@material-ui/core';
+import { useHistory } from "react-router-dom";
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,8 +14,7 @@ import IconButton from '@material-ui/core/IconButton';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
-
-import Logo from '../resources/matthew_serna_logo.png';
+import HomeIcon from '@mui/icons-material/Home';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -100,6 +101,11 @@ HideOnScroll.propTypes = {
 
 const HideAppBar = (props) => {
     const classes = useStyles();
+    const history = useHistory();
+    
+    const hoveredStyle = {
+        cursor: 'initial'
+    }
 
     var sectionStyle = {
       backgroundRepeat: 'no-repeat',
@@ -116,9 +122,9 @@ const HideAppBar = (props) => {
                 <AppBar style={sectionStyle}>
                 <Toolbar className={classes.customizeToolbar}>
                     <div>
-                      <Grid>
-                          <p>Matthew<br/>Serna</p>
-                      </Grid>
+                      <IconButton color="inherit" onClick={() => history.push("/")}>
+                        <HomeIcon />
+                      </IconButton>
                     </div>
                     <div className={classes.linksSection}>
                       <Tooltip title="Github profile" arrow>

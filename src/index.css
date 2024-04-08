@@ -5,7 +5,6 @@
 .banner {
   position: relative;
   height: 80%;
-  min-height: 500px;
   width: 100%;
   
   text-align: center;
@@ -77,8 +76,8 @@ code {
 a { cursor: pointer; }
 
 .app-container {
-    min-height: 1650px;
-    background-color: "#164773";
+  height: fit-content;
+  background-color: "#164773";
 }
 
 .nav {
