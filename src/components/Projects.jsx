@@ -1,55 +1,17 @@
 import React from "react";
-import { Grow, Card, makeStyles } from "@material-ui/core";
+import { Grow, Card, Link } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
 import '../index.css';
 import GithubLogo from "../resources/git-white.png";
 import PitcherPlots from "../resources/pitcher-plots.png";
 import HobbyMe from "../resources/HobbyMe.png";
 import Wridr from "../resources/wridr.png";
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-      backgroundRepeat: 'no-repeat',
-      backgroundColor: theme.palette.text.secondary, 
-      backgroundSize: 'cover',
-      minHeight: '400px'
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-    image: {
-        flexGrow: 1,
-        display: "block",
-        paddingTop: "1rem",
-        marginLeft: "auto",
-        marginRight: "auto",
-    },
-}));
-
-const GridLayout = (props) => {
-    const [cols, setGridCols] = useState(3);
-
-    useEffect(() => {
-        // console.log(window.outerWidth);
-        if(window.outerWidth < 1000) {
-            setGridCols(2);
-        } else if(window.outerWidth >= 1000) {
-            setGridCols(3);
-        }
-    }, [window.outerWidth]);
-    
-    return(
-        <div style={{ display: "grid", gridTemplateColumns: `repeat(${cols}, 1fr)`, gridGap: 20 }}>
-            {props.allProjects}
-        </div>
-    );
-}
-
-export {GridLayout};
+import { useStyles } from "../utils/styles";
+import { GridLayout } from "../utils/GridLayout";
 
 const Projects = () => {
 
@@ -100,26 +62,48 @@ const Projects = () => {
 
     const allProjects = projects.map((project) => {
         return(
-            <Card className={classes.root}>
-                <img src={project.image} className={classes.image}/>
-                <h2 className="highlight-text-white">
+            <Card sx={{ maxWidth: 345 }} className={classes.root}>
+                <CardMedia
+                component="img"
+                height="250"
+                image={project.image}
+                alt="image"
+                />
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="div" color="white">
                     {project.name}
-                </h2>
-                <Grow in={bannerGrow} timeout={timeout2}>
-                    <h3 className="highlight-text-white">
+                </Typography>
+                <Typography gutterBottom variant="h7" component="div" color="white">
+                    {project.description}
+                </Typography>
+                <Typography variant="body" color="white">
                     {project.year}
-                    <br/>
-                    <p className="highligh-text-white">{project.description}</p>
-                    <a className="highlight-text-white" href={project.link}>Github</a>
-                    </h3>
-                </Grow>
+                </Typography>
+                <Typography variant="body2" color="white">
+                    <Link href={project.link}>{project.link}</Link>
+                </Typography>
+                </CardContent>
             </Card>
+            // <Card className={classes.root}>
+            //     <img src={project.image} className={classes.image}/>
+            //     <h2 className="highlight-text-white">
+            //         {project.name}
+            //     </h2>
+            //     <Grow in={bannerGrow} timeout={timeout2}>
+            //         <h3 className="highlight-text-white">
+            //         {project.year}
+            //         <br/>
+            //         <p className="highligh-text-white">{project.description}</p>
+            //         <a className="highlight-text-white" href={project.link}>Github</a>
+            //         </h3>
+            //     </Grow>
+            // </Card>
         );
     });
 
     return(
         <div>
-            <div className="section" id="projects">
+            <div className="section section-two" id="projects">
                 <div className="container">
                     <Grow in={bannerGrow} timeout={timeout}>
                         <h1 className="highlight-text-white">
@@ -127,7 +111,7 @@ const Projects = () => {
                         </h1>
                     </Grow>
                     <Grow in={bannerGrow} timeout={timeout2}>
-                        <GridLayout allProjects={allProjects}/>
+                        <GridLayout all={allProjects}/>
                     </Grow>
                 </div>
             </div>

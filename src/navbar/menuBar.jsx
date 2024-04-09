@@ -102,11 +102,6 @@ HideOnScroll.propTypes = {
 const HideAppBar = (props) => {
     const classes = useStyles();
     const history = useHistory();
-    
-    const hoveredStyle = {
-        cursor: 'initial'
-    }
-
     var sectionStyle = {
       backgroundRepeat: 'no-repeat',
       backgroundColor: '#2A3439',

@@ -54,7 +54,7 @@ const Banner = () => {
     };
 
     return(
-        <div className="banner" id="home">
+        <div className="banner section-one" id="home">
             <div className="sub-banner">
                 <Grow in={bannerGrow} timeout={timeout}>
                     <Typography variant="h1">{name}</Typography>
@@ -69,6 +69,7 @@ const Banner = () => {
                     <Stack className="container-body" spacing={2} direction="row" alignContent="center">
                         <Button variant="contained" className={classes.buttonOne} onClick={() => routeChange("experience")}>Experience</Button>
                         <Button variant="contained" className={classes.buttonTwo} onClick={() => routeChange("projects")}>Projects</Button>
+                        {/* <Button variant="contained" className={classes.buttonTwo} onClick={() => routeChange("personal")}>Personal</Button> */}
                         <Button variant="contained" className={classes.buttonThree} href="mailto:matthewserna714@gmail.com">Contact</Button>
                     </Stack>
                 </Grow>
