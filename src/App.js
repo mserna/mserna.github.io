@@ -5,7 +5,7 @@ import './App.css';
 import { Home } from './home';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
-import Personal from './components/Personal';
+import Education from './components/School';
 import { NavBar } from './navbar/nav';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route exact path="/experience" component={Experience} />
           <Route exact path="/projects" component={Projects} />
-          {/* <Route exact path="/personal" component={Personal} /> */}
+          <Route exact path="/education" component={Education} />
           <Redirect from="*" to="/" />
         </Switch>
       </div>

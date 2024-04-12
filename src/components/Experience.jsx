@@ -1,8 +1,5 @@
 import React from "react";
-import { Grow, Card, Grid,Link } from "@material-ui/core";
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+import { Grow, Card } from "@material-ui/core";
 import { useEffect, useState } from "react";
 
 import '../index.css';
@@ -72,34 +69,29 @@ const Experience = () => {
 
     const allExperience = work.map((work) => {
         return(
-            <Card sx={{ maxWidth: 345 }} className={classes.root}>
-                <CardMedia
-                component="img"
-                height="250"
-                image={work.image}
-                alt="image"
-                />
-                <CardContent>
-                <Typography gutterBottom variant="h5" component="div" color="white">
+            <Card className={classes.root}>
+                <img alt="logo" max-height="250" src={work.image} className={classes.image}/>
+                <h2 className="highlight-text-white">
                     {work.company}
-                </Typography>
-                <Typography gutterBottom variant="h7" component="div" color="white">
+                </h2>
+                <h3 className="highlight-text-white">
                     {work.position}
-                </Typography>
-                <Typography variant="body" color="white">
+                </h3>
+                <Grow in={bannerGrow} timeout={timeout}>
+                    <h3 className="highlight-text-white">
                     {work.date}
-                </Typography>
-                <Typography variant="body2" color="white">
-                    <Link href={work.url}>{work.url}</Link>
-                </Typography>
-                </CardContent>
+                    <br/>
+                    <p className="highligh-text-white">{work.description}</p>
+                    <a className="highlight-text-white" href={work.url}>{work.url}</a>
+                    </h3>
+                </Grow>
             </Card>
         );
     });
 
     return(
         <div>
-            <div className="section section-two" id="experience">
+            <div className="section-two" id="experience">
                 <div className="container">
                     <Grow in={bannerGrow} timeout={timeout}>
                         <h1 className="highlight-text-white">

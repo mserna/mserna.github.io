@@ -1,9 +1,6 @@
 import React from "react";
-import { Grow, Card, Link } from "@material-ui/core";
+import { Grow, Card } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 
 import '../index.css';
 import GithubLogo from "../resources/git-white.png";
@@ -32,7 +29,7 @@ const Projects = () => {
             image: PitcherPlots,
             year: "2021",
             description: "A React JS webpage that loads MLB pitcher data and visualizes it against other pitchers around the league.",
-            link: "https://github.com/mserna/mlb-pitcher-statcast/tree/master/question_3"
+            link: "https://github.com/mserna/mlb-pitcher-statcast/"
         },
         {
             key: 2,
@@ -62,48 +59,26 @@ const Projects = () => {
 
     const allProjects = projects.map((project) => {
         return(
-            <Card sx={{ maxWidth: 345 }} className={classes.root}>
-                <CardMedia
-                component="img"
-                height="250"
-                image={project.image}
-                alt="image"
-                />
-                <CardContent>
-                <Typography gutterBottom variant="h5" component="div" color="white">
+            <Card className={classes.root}>
+                <img alt="proj-img" max-height="250" src={project.image} className={classes.image}/>
+                <h2 className="highlight-text-white">
                     {project.name}
-                </Typography>
-                <Typography gutterBottom variant="h7" component="div" color="white">
-                    {project.description}
-                </Typography>
-                <Typography variant="body" color="white">
+                </h2>
+                <Grow in={bannerGrow} timeout={timeout2}>
+                    <h3 className="highlight-text-white">
                     {project.year}
-                </Typography>
-                <Typography variant="body2" color="white">
-                    <Link href={project.link}>{project.link}</Link>
-                </Typography>
-                </CardContent>
+                    <br/>
+                    <p className="highligh-text-white">{project.description}</p>
+                    <a className="highlight-text-white" href={project.link}>Github</a>
+                    </h3>
+                </Grow>
             </Card>
-            // <Card className={classes.root}>
-            //     <img src={project.image} className={classes.image}/>
-            //     <h2 className="highlight-text-white">
-            //         {project.name}
-            //     </h2>
-            //     <Grow in={bannerGrow} timeout={timeout2}>
-            //         <h3 className="highlight-text-white">
-            //         {project.year}
-            //         <br/>
-            //         <p className="highligh-text-white">{project.description}</p>
-            //         <a className="highlight-text-white" href={project.link}>Github</a>
-            //         </h3>
-            //     </Grow>
-            // </Card>
         );
     });
 
     return(
         <div>
-            <div className="section section-two" id="projects">
+            <div className="section-two" id="projects">
                 <div className="container">
                     <Grow in={bannerGrow} timeout={timeout}>
                         <h1 className="highlight-text-white">

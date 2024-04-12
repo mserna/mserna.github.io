@@ -69,7 +69,7 @@ const Banner = () => {
                     <Stack className="container-body" spacing={2} direction="row" alignContent="center">
                         <Button variant="contained" className={classes.buttonOne} onClick={() => routeChange("experience")}>Experience</Button>
                         <Button variant="contained" className={classes.buttonTwo} onClick={() => routeChange("projects")}>Projects</Button>
-                        {/* <Button variant="contained" className={classes.buttonTwo} onClick={() => routeChange("personal")}>Personal</Button> */}
+                        <Button variant="contained" className={classes.buttonTwo} onClick={() => routeChange("education")}>Education & Certs</Button>
                         <Button variant="contained" className={classes.buttonThree} href="mailto:matthewserna714@gmail.com">Contact</Button>
                     </Stack>
                 </Grow>
