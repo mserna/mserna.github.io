@@ -25,11 +25,12 @@ const Projects = () => {
     const projects = [
         {
             key: 1,
-            name: "MLB Pitcher Plots | React",
+            name: "Pitcher VS. | React",
             image: PitcherPlots,
             year: "2021",
             description: "A React JS webpage that loads MLB pitcher data and visualizes it against other pitchers around the league.",
-            link: "https://github.com/mserna/mlb-pitcher-statcast/"
+            github: "https://github.com/mserna/mlb-pitcher-statcast/",
+            link: "https://matthewserna.com/pitcher-versus"
         },
         {
             key: 2,
@@ -37,7 +38,8 @@ const Projects = () => {
             image: HobbyMe,
             year: "2020",
             description: "A mobile application that allowed users to network, collaborate and meetup with others that shared similar hobbies.",
-            link: "https://github.com/mserna/Hobby_Me"
+            github: "https://github.com/mserna/Hobby_Me",
+            link: ""
         },
         {
             key: 3,
@@ -45,7 +47,8 @@ const Projects = () => {
             image: Wridr,
             year: "2016",
             description: "A social platform mobile application that allowed users to share ride-sharing stories using Twitter/X API.",
-            link: "https://github.com/mserna/Wridr"
+            github: "https://github.com/mserna/Wridr",
+            link: ""
         },
         {
             key: 4,
@@ -53,7 +56,8 @@ const Projects = () => {
             image: GithubLogo,
             year: "2024",
             description: "In Progress",
-            link: "https://github.com/mserna/"
+            github: "https://github.com/mserna/",
+            link: ""
         }
     ];
 
@@ -69,7 +73,8 @@ const Projects = () => {
                     {project.year}
                     <br/>
                     <p className="highligh-text-white">{project.description}</p>
-                    <a className="highlight-text-white" href={project.link}>Github</a>
+                    <a className="highlight-text-white" href={project.link}>Site</a><br/><br/>
+                    <a className="highlight-text-white" href={project.github}>Github</a>
                     </h3>
                 </Grow>
             </Card>

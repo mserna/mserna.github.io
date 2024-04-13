@@ -19,6 +19,10 @@ function App() {
           <Route exact path="/experience" component={Experience} />
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/education" component={Education} />
+          <Route exact path="/pitcher-versus" component={() => {
+            window.location.href = "https://matthewserna.com/pitcher-versus";
+            return null;
+          }} />
           <Redirect from="*" to="/" />
         </Switch>
       </div>
