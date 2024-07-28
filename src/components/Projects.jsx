@@ -9,6 +9,7 @@ import HobbyMe from "../resources/HobbyMe.png";
 import Wridr from "../resources/wridr.png";
 import { useStyles } from "../utils/styles";
 import { GridLayout } from "../utils/GridLayout";
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const Projects = () => {
 
@@ -30,7 +31,7 @@ const Projects = () => {
             year: "2021",
             description: "A React JS webpage that loads MLB pitcher data and visualizes it against other pitchers around the league.",
             github: "https://github.com/mserna/mlb-pitcher-statcast/",
-            link: "https://matthewserna.com/pitcher-versus"
+            link: "http://pitchervs.s3-website-us-west-1.amazonaws.com/"
         },
         {
             key: 2,
@@ -39,7 +40,7 @@ const Projects = () => {
             year: "2020",
             description: "A mobile application that allowed users to network, collaborate and meetup with others that shared similar hobbies.",
             github: "https://github.com/mserna/Hobby_Me",
-            link: ""
+            link: null
         },
         {
             key: 3,
@@ -48,7 +49,7 @@ const Projects = () => {
             year: "2016",
             description: "A social platform mobile application that allowed users to share ride-sharing stories using Twitter/X API.",
             github: "https://github.com/mserna/Wridr",
-            link: ""
+            link: null
         },
         {
             key: 4,
@@ -56,8 +57,8 @@ const Projects = () => {
             image: GithubLogo,
             year: "2024",
             description: "In Progress",
-            github: "https://github.com/mserna/",
-            link: ""
+            github: null,
+            link: null
         }
     ];
 
@@ -73,8 +74,16 @@ const Projects = () => {
                     {project.year}
                     <br/>
                     <p className="highligh-text-white">{project.description}</p>
-                    <a className="highlight-text-white" href={project.link}>Site</a><br/><br/>
-                    <a className="highlight-text-white" href={project.github}>Github</a>
+                    {project.link &&
+                        <>
+                        <a className="highlight-text-white" target="_blank" rel="noopener noreferrer" href={project.link}>Site<OpenInNewIcon/></a><br/><br/>
+                        </>
+                    }
+                    {project.github &&
+                        <>
+                            <a className="highlight-text-white" target="_blank" rel="noopener noreferrer" href={project.github}>Github<OpenInNewIcon/></a>
+                        </>
+                    }
                     </h3>
                 </Grow>
             </Card>

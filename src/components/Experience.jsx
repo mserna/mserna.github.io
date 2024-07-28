@@ -11,6 +11,7 @@ import BFLogo from "../resources/bf.png";
 import SDSLogo from "../resources/sds_light.png";
 import { useStyles } from "../utils/styles";
 import { GridLayout } from "../utils/GridLayout";
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const Experience = () => {
     const [bannerGrow, setBannerGrow] = useState(false);
@@ -82,7 +83,7 @@ const Experience = () => {
                     {work.date}
                     <br/>
                     <p className="highligh-text-white">{work.description}</p>
-                    <a className="highlight-text-white" href={work.url}>{work.url}</a>
+                    <a className="highlight-text-white" target="_blank" rel="noopener noreferrer" href={work.url}>{work.url}<OpenInNewIcon/></a>
                     </h3>
                 </Grow>
             </Card>

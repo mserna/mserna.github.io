@@ -7,6 +7,7 @@ import SFSULogo from "../resources/sfsu.png";
 import CourseraLogo from "../resources/coursera.svg";
 import { GridLayout } from "../utils/GridLayout";
 import { useStyles } from "../utils/styles";
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const Education = () => {
     const [bannerGrow, setBannerGrow] = useState(false);
@@ -48,7 +49,7 @@ const Education = () => {
                     {coursework.year}
                     <br/>
                     <p className="highligh-text-white">{coursework.description}</p>
-                    <a className="highlight-text-white" href={coursework.link}>{coursework.link}</a>
+                    <a className="highlight-text-white" target="_blank" rel="noopener noreferrer" href={coursework.link}>{coursework.link}<OpenInNewIcon/></a>
                     </h3>
                 </Grow>
             </Card>
