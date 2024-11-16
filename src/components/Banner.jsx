@@ -11,6 +11,8 @@ import { useEffect, useState} from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
+import { timeout, timeout2 } from "../utils/constants";
+
 const useStyles = makeStyles({
     flexGrow: {
         flex: '1',
@@ -44,9 +46,6 @@ const Banner = () => {
     useEffect(() => {
         setBannerGrow(true);
     }, []);
-    
-    var timeout = 1000;
-    var timeout2 = 2500;
 
     let history = useHistory();
     const routeChange = (pathStr) => {

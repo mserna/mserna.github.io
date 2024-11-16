@@ -3,12 +3,7 @@ import { Grow, Card } from "@material-ui/core";
 import { useEffect, useState } from "react";
 
 import '../index.css';
-import ESLogo from "../resources/es.jpg";
-import CiscoLogo from "../resources/cisco.png";
-import AutodeskLogo from "../resources/autodesk.png";
-import VitalLogo from "../resources/vital-logo.svg";
-import BFLogo from "../resources/bf.png";
-import SDSLogo from "../resources/sds_light.png";
+import { timeout, work } from "../utils/constants";
 import { useStyles } from "../utils/styles";
 import { GridLayout } from "../utils/GridLayout";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
@@ -20,53 +15,6 @@ const Experience = () => {
     useEffect(() => {
         setBannerGrow(true);
     }, []);
-
-    var timeout = 1000;
-
-    const work = [
-        {
-            company: "Sony San Diego Studio",
-            position: "Frontend Logic Programmer",
-            date: "2022-",
-            url: "https://sonysandiegostudio.games/",
-            image: SDSLogo,
-        },
-        {
-            company: "Element Science",
-            position: "Software Engineer II",
-            date: "2019-2022",
-            url: "https://www.elementscience.com/",
-            image: ESLogo,
-        },
-        {
-            company: "Cisco",
-            position: "Software Engineer in Test",
-            date: "2019",
-            url: "https://www.cisco.com/",
-            image: CiscoLogo,
-        },
-        {
-            company: "Autodesk",
-            position: "Python Automation Engineer",
-            date: "2018-2019",
-            url: "https://www.autodesk.com/",
-            image: AutodeskLogo,
-        },
-        {
-            company: "Vital Enterprises",
-            position: "QA Software Engineer",
-            date: "2017-2018",
-            url: "https://www.vital.enterprises/",
-            image: VitalLogo,
-        },
-        {
-            company: "Blackfire Research",
-            position: "Software QA | Software Engineer",
-            date: "2016-2017",
-            url: "https://bfrx.com/",
-            image: BFLogo,
-        },
-    ];
 
     const allExperience = work.map((work) => {
         return(

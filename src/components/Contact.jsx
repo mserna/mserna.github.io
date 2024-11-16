@@ -5,6 +5,7 @@ import MarkunreadMailboxIcon from '@material-ui/icons/MarkunreadMailbox';
 import IconButton from '@material-ui/core/IconButton';
 
 import '../index.css';
+import { timeout } from "../utils/constants";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,9 +28,6 @@ const Contact = () => {
     useEffect(() => {
         setBannerGrow(true);
     }, []);
-
-    var timeout = 1000;
-    var timeout2 = 2500;
 
     const handleSubmit = (e) => {
         console.log("Sending email");
