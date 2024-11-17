@@ -1,6 +1,14 @@
 /* ------------------------------------------------------------------ */
 /* b. Header Styles
 /* ------------------------------------------------------------------ */
+
+.main section {
+  margin: 0;
+  min-height: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+
 .banner {
   position: relative;
   height: 100%;
@@ -21,11 +29,20 @@ body {
   vertical-align: middle;
   height: 100%;
 }
+
 .sub-banner {
   display: inline-block;
-  vertical-align: middle;
   margin: 0 auto;
   width: 85%;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.lower-banner {
+  display: inline-block;
+  vertical-align: bottom;
+  margin: 0 auto;
+  width: 90%;
   padding-bottom: 30px;
   text-align: center;
 }
@@ -42,8 +59,6 @@ body {
   vertical-align: middle;
   margin: 0 auto;
   width: 85%;
-  max-width: 1000px;
-  max-height: 1000px;
   padding-bottom: 30px;
   text-align: center;
 }
@@ -81,10 +96,6 @@ a { cursor: pointer; }
 .app-container {
   height: fit-content;
   background-color: "#164773";
-}
-
-.nav {
-  background-color: blue;
 }
 
 .container {
@@ -153,12 +164,6 @@ a { cursor: pointer; }
   text-align: center;
   flex-grow: 1;
 }
-.main section {
-  margin: 0;
-  min-height: 100%;
-  height: 100vh;
-  overflow: auto;
-}
 .section-one {
   background-color: #3e5050;
 }
@@ -181,18 +186,4 @@ a { cursor: pointer; }
   margin: 0;
   padding: 50px 0 20px;
   text-align: center;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }

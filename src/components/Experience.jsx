@@ -4,6 +4,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { Badge } from "react-bootstrap";
 import { makeStyles } from '@material-ui/core/styles';
 import { Work, HourglassBottomRounded } from "@mui/icons-material";
+import { isMobile } from "react-device-detect";
 
 import '../index.css';
 import { work } from "../utils/constants";
@@ -16,6 +17,11 @@ const useStyles = makeStyles({
     footerStyle: {
         textAlign: "left",
         marginTop: "15px",
+    },
+    footerMobileStyle: {
+        textAlign: "left",
+        marginTop: "15px",
+        display: "inline-grid",
     }
 });
 
@@ -69,7 +75,7 @@ const Experience = () => {
                 >
                     {work.company}
                 </h4>
-                <div className={classes.footerStyle}>
+                <div className={isMobile ? classes.footerMobileStyle : classes.footerStyle}>
                     {tech}
                 </div>
             </VerticalTimelineElement>
@@ -100,6 +106,7 @@ const Experience = () => {
                     />
                 </VerticalTimeline>
             </div>
+            <div style={{paddingBottom: "20px"}}></div>
         </section>
     );
 }

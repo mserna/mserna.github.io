@@ -1,65 +1,136 @@
-import React from "react";
-import { Grow, Card } from "@material-ui/core";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState }  from "react";
+import { Modal, ModalClose, ModalDialog, Tooltip, Typography } from "@mui/joy";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import "react-awesome-slider/dist/custom-animations/scale-out-animation.css";
+import { IconButton } from "@material-ui/core";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 import '../index.css';
-import { timeout, timeout2, projects } from "../utils/constants";
-import { useStyles } from "../utils/styles";
-import { GridLayout } from "../utils/GridLayout";
+import { projects } from "../utils/constants";
 
 const Projects = () => {
+    const [projectDetailsShow, setProjectDetailsShow] = useState(false);
+    const [projectModalData, setProjectModalData] = useState({});
+    const sectionName = "Projects";
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+    };
 
-    const [bannerGrow, setBannerGrow] = useState(false);
-    const classes = useStyles();
-    
+    const detailsModalShow = (data) => {
+        setProjectDetailsShow(true);
+        setProjectModalData(data);
+    };
+
+    const detailsModalClose = () => {
+        setProjectDetailsShow(false);
+        setProjectModalData(null);
+    };
+
+    // debugging
     useEffect(() => {
-        setBannerGrow(true);
-    }, []);
+        console.log("Show modal:", projectDetailsShow);
+    }, [projectDetailsShow])
 
-    const allProjects = projects.map((project) => {
+    const allProjects = projects.map((proj) => {
         return(
-            <Card className={classes.root}>
-                <img alt="proj-img" max-height="250" src={project.image} className={classes.image}/>
-                <h2 className="highlight-text-white">
-                    {project.name}
-                </h2>
-                <Grow in={bannerGrow} timeout={timeout2}>
-                    <h3 className="highlight-text-white">
-                    {project.year}
-                    <br/>
-                    <p className="highligh-text-white">{project.description}</p>
-                    {project.link &&
-                        <>
-                        <a className="highlight-text-white" target="_blank" rel="noopener noreferrer" href={project.link}>Site<OpenInNewIcon/></a><br/><br/>
-                        </>
-                    }
-                    {project.github &&
-                        <>
-                            <a className="highlight-text-white" target="_blank" rel="noopener noreferrer" href={project.github}>Github<OpenInNewIcon/></a>
-                        </>
-                    }
-                    </h3>
-                </Grow>
-            </Card>
+            <div
+                className="col-sm-12 col-md-6 col-lg-4"
+                key={proj.name}
+                style={{ cursor: "pointer" }}
+            >
+                <span className="portfolio-item d-block">
+                    <div className="foto" onClick={() => detailsModalShow(proj)}>
+                        <div>
+                            <img
+                                src={proj.image}
+                                alt="projectImages"
+                                height="230"
+                                style={{marginBottom: 0, paddingBottom: 0, position: 'relative'}}
+                            />
+                            <span className="project-date">{proj.year}</span>
+                            <br />
+                            <p className="project-title-settings mt-3">
+                                {proj.name}
+                            </p>
+                        </div>
+                </div>
+                </span>
+          </div>
         );
     });
 
     return(
-        <div>
-            <div className="section-two" id="projects">
-                <div className="container">
-                    <Grow in={bannerGrow} timeout={timeout}>
-                        <h1 className="highlight-text-white">
-                        Projects
-                        </h1>
-                    </Grow>
-                    <Grow in={bannerGrow} timeout={timeout2}>
-                        <GridLayout all={allProjects}/>
-                    </Grow>
+        <section id="portfolio">
+            <div className="col-md-12">
+                <h1 className="section-title" style={{color: "#000"}}>
+                    <span>{sectionName}</span>
+                </h1>
+                <div className="col-md-12 mx-auto" style={{display: "flex"}}>
+                    <div className="row mx-auto">
+                        {allProjects}
+                    </div>
                 </div>
+                {projectModalData && 
+                <Modal
+                    open={projectDetailsShow}
+                    onClose={detailsModalClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <ModalDialog>
+                        <ModalClose />
+                        <div className="col-md-12">
+                            <div className="col-md-10 mx-auto modal-content" style={{ paddingBottom: "50px" }}>
+                                    <img
+                                        src={projectModalData.gif ? projectModalData.gif : projectModalData.image}
+                                        alt="projectImages"
+                                        height="360"
+                                        style={{marginBottom: 0, paddingBottom: 0, position: 'relative', objectFit: "cover"}}
+                                    />
+                            </div>
+                            <div className="col-md-10 mx-auto" style={{ textAlign: "center" }}>
+                                <h2 style={{ padding: "5px 5px 0 5px" }}>
+                                    {projectModalData.name}
+                                    {projectModalData.link &&
+                                        <Tooltip title="Demo">
+                                            <IconButton 
+                                                href={projectModalData.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <OpenInNewIcon/>
+                                            </IconButton>
+                                        </Tooltip>
+                                    }
+                                    {projectModalData.github &&
+                                        <Tooltip title="Source Code">
+                                            <IconButton
+                                                href={projectModalData.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <GitHubIcon/>
+                                            </IconButton>
+                                        </Tooltip>
+                                    }
+                                </h2>
+                                <Typography sx={{fontSize: "1.5em", textAlign: "center"}}>{projectModalData.description}</Typography>
+                                <Typography>{projectModalData.tech}</Typography>
+                            </div>
+                        </div>
+                        </ModalDialog>
+                </Modal>
+                }
             </div>
-        </div>
+        </section>
     );
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
 import "./App.scss";
@@ -7,7 +6,7 @@ import { Home } from './home';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Education from './components/School';
-import { NavBar } from './navbar/nav';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -15,7 +14,9 @@ function App() {
     <div className="app-container bg-light">
       <div className="container pt-4 pb-4">
         <Home/>
+        <Projects/>
         <Experience/>
+        <Footer />
       </div>
     </div>
   );

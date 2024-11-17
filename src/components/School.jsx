@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 import '../index.css';
 import { timeout, learning} from "../utils/constants";
-import { GridLayout } from "../utils/GridLayout";
 import { useStyles } from "../utils/styles";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
@@ -45,7 +44,7 @@ const Education = () => {
                         </h1>
                     </Grow>
                     <Grow in={bannerGrow} timeout={timeout}>
-                        <GridLayout all={allLearning}/>
+                        {/* <GridLayout all={allLearning}/> */}
                     </Grow>
                 </div>
             </div>
