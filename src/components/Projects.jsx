@@ -1,8 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import { Modal, ModalClose, ModalDialog, Tooltip, Typography } from "@mui/joy";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import "react-awesome-slider/dist/custom-animations/scale-out-animation.css";
-import { IconButton } from "@material-ui/core";
+import { IconButton } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 import '../index.css';
@@ -12,17 +11,6 @@ const Projects = () => {
     const [projectDetailsShow, setProjectDetailsShow] = useState(false);
     const [projectModalData, setProjectModalData] = useState({});
     const sectionName = "Projects";
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 400,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
-        boxShadow: 24,
-        p: 4,
-    };
 
     const detailsModalShow = (data) => {
         setProjectDetailsShow(true);

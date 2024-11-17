@@ -1,7 +1,7 @@
 import React from "react";
-import { IconButton } from "@material-ui/core";
+import { IconButton } from "@mui/material";
 import InstagramIcon from '@mui/icons-material/Instagram';
-import { GitHub } from "@material-ui/icons";
+import { GitHub } from "@mui/icons-material";
 
 const Footer = () => {
     return(
