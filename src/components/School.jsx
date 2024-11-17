@@ -3,7 +3,7 @@ import { Grow, Card } from "@material-ui/core";
 import { useEffect, useState } from "react";
 
 import '../index.css';
-import { timeout, learing} from "../utils/constants";
+import { timeout, learning} from "../utils/constants";
 import { GridLayout } from "../utils/GridLayout";
 import { useStyles } from "../utils/styles";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
@@ -16,7 +16,7 @@ const Education = () => {
         setBannerGrow(true);
     }, []);
 
-    const allLearning = learing.map((coursework) => {
+    const allLearning = learning.map((coursework) => {
         return(
             <Card className={classes.root}>
                 <img alt="proj-img" max-height="250" src={coursework.image} className={classes.image}/>

@@ -1,58 +1,106 @@
 import React from "react";
-import { Grow, Card } from "@material-ui/core";
-import { useEffect, useState } from "react";
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { Badge } from "react-bootstrap";
+import { makeStyles } from '@material-ui/core/styles';
+import { Work, HourglassBottomRounded } from "@mui/icons-material";
 
 import '../index.css';
-import { timeout, work } from "../utils/constants";
-import { useStyles } from "../utils/styles";
-import { GridLayout } from "../utils/GridLayout";
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { work } from "../utils/constants";
+
+const useStyles = makeStyles({
+    mainTechStyle: {
+        textAlign: "left",
+        marginBottom: "4px",
+    },
+    footerStyle: {
+        textAlign: "left",
+        marginTop: "15px",
+    }
+});
 
 const Experience = () => {
-    const [bannerGrow, setBannerGrow] = useState(false);
     const classes = useStyles();
-    
-    useEffect(() => {
-        setBannerGrow(true);
-    }, []);
+    const sectionName = "Experience";
+    const localWork = work.map((work, i) => {
+        const technologies = work.technologies;
+        const mainTechnologies = work.mainTech;
 
-    const allExperience = work.map((work) => {
+        var mainTech = mainTechnologies.map((technology, i) => {
+            return(
+                <Badge pill className="main-badge mr-2" key={i}>
+                    {technology}
+                </Badge>
+            );
+        });
+
+        var tech = technologies.map((technology, i) => {
+            return(
+                <Badge pill className="experience-badge mr-2" key={i}>
+                    {technology}
+                </Badge>
+            );
+        });
+
         return(
-            <Card className={classes.root}>
-                <img alt="logo" max-height="250" src={work.image} className={classes.image}/>
-                <h2 className="highlight-text-white">
-                    {work.company}
-                </h2>
-                <h3 className="highlight-text-white">
+            <VerticalTimelineElement
+                className="vertical-timeline-element--work"
+                date={work.date}
+                iconStyle={{
+                    background: "#495f5f",
+                    color: "#fff",
+                    textAlign: "center",
+                }}
+                icon={<Work/>}
+                key={i}
+            >
+                <div className={classes.mainTechStyle}>
+                    {mainTech}
+                </div>
+                <h3 
+                    className="veritical-timeline-element-title" 
+                    style={{textAlign: "left"}}
+                >
                     {work.position}
                 </h3>
-                <Grow in={bannerGrow} timeout={timeout}>
-                    <h3 className="highlight-text-white">
-                    {work.date}
-                    <br/>
-                    <p className="highligh-text-white">{work.description}</p>
-                    <a className="highlight-text-white" target="_blank" rel="noopener noreferrer" href={work.url}>{work.url}<OpenInNewIcon/></a>
-                    </h3>
-                </Grow>
-            </Card>
+                <h4 
+                    className="veritical-timeline-element-subtitle" 
+                    style={{textAlign: "left"}}
+                >
+                    {work.company}
+                </h4>
+                <div className={classes.footerStyle}>
+                    {tech}
+                </div>
+            </VerticalTimelineElement>
         );
     });
 
     return(
-        <div>
-            <div className="section-two" id="experience">
-                <div className="container">
-                    <Grow in={bannerGrow} timeout={timeout}>
-                        <h1 className="highlight-text-white">
-                            Experience
-                        </h1>
-                    </Grow>
-                    <Grow in={bannerGrow} timeout={timeout}>
-                        <GridLayout all={allExperience}/>
-                    </Grow>
+        <section id="resume" className="pb-5">
+            <div className="col-md-12" mx="auto">
+                <div className="col-md-12">
+                    <h1 className="section-title" style={{color: "#000"}}>
+                        <span className="text-black" style={{textAlign: "center"}}>
+                            {sectionName}
+                        </span>
+                    </h1>
                 </div>
             </div>
-        </div>
+            <div className="col-md-8 mx-auto">
+                <VerticalTimeline>
+                    {localWork}
+                    <VerticalTimelineElement
+                        iconStyle={{
+                            background: "#495f5f",
+                            color: "#fff",
+                            textAlign: "center",
+                        }}
+                        icon={<HourglassBottomRounded/>}
+                    />
+                </VerticalTimeline>
+            </div>
+        </section>
     );
 }
 

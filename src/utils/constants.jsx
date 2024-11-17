@@ -18,9 +18,16 @@ export const work = [
     {
         company: "Sony San Diego Studio",
         position: "Frontend Logic Programmer",
-        date: "2022-",
+        date: "2022-Present",
         url: "https://sonysandiegostudio.games/",
-        image: SDSLogo,
+        image: <SDSLogo/>,
+        technologies: [
+            "Perforce(P4V/Swarm)",
+            "Visual Studio",
+        ],
+        mainTech: [
+            "C++"
+        ],
     },
     {
         company: "Element Science",
@@ -28,6 +35,20 @@ export const work = [
         date: "2019-2022",
         url: "https://www.elementscience.com/",
         image: ESLogo,
+        technologies: [
+            "Flask",
+            "SQLAlchemy",
+            "Javascript",
+            "PostgreSQL",
+            "Fastlane",
+            "Jenkins",
+            "Amazon Web Services",
+        ],
+        mainTech: [
+            "Swift",
+            "ReactJS",
+            "Python",
+        ],
     },
     {
         company: "Cisco",
@@ -35,6 +56,14 @@ export const work = [
         date: "2019",
         url: "https://www.cisco.com/",
         image: CiscoLogo,
+        technologies: [
+            "Cisco Intersight",
+            "Selenium",
+            "PyCharm",
+        ],
+        mainTech: [
+            "Python"
+        ],
     },
     {
         company: "Autodesk",
@@ -42,6 +71,15 @@ export const work = [
         date: "2018-2019",
         url: "https://www.autodesk.com/",
         image: AutodeskLogo,
+        technologies: [
+            "Visual Studio Code",
+            "Grafana",
+            "Amazon Web Services",
+        ],
+        mainTech: [
+            "Python",
+            "NodeJS",
+        ],
     },
     {
         company: "Vital Enterprises",
@@ -49,6 +87,15 @@ export const work = [
         date: "2017-2018",
         url: "https://www.vital.enterprises/",
         image: VitalLogo,
+        technologies: [
+            "Selenium",
+            "Puppeteer",
+            "Visual Studio",
+        ],
+        mainTech: [
+            "Python",
+            "NodeJS",
+        ],
     },
     {
         company: "Blackfire Research",
@@ -56,6 +103,17 @@ export const work = [
         date: "2016-2017",
         url: "https://bfrx.com/",
         image: BFLogo,
+        technologies: [
+            "CMake",
+            "JNI",
+            "Eclipse",
+            "Visual Studio",
+        ],
+        mainTech: [
+            "Java",
+            "C++",
+            "C"
+        ],
     },
 ];
 
@@ -98,7 +156,7 @@ export const projects = [
     }
 ];
 
-export const learing = [
+export const learning = [
     {
         key: 1,
         name: "San Francisco State University",

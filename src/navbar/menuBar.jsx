@@ -107,7 +107,7 @@ const HideAppBar = (props) => {
       backgroundColor: '#2A3439',
       backgroundSize: 'contain',
       minHeight: 50
-    }
+    };
 
     return (
         <div className={classes.root}>
