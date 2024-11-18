@@ -28,8 +28,7 @@ const useStyles = makeStyles({
     banner: {
         display: "flex",
         flexFlow: "row wrap",
-        width:"90%",
-        maxWidth: "1400px",
+        width:"50%",
         marginRight: "auto", 
         marginLeft: "auto"
     },
@@ -49,8 +48,8 @@ const useStyles = makeStyles({
 
 const Banner = () => {
     const classes = useStyles();
-    const hello = "Hello, welcome to my website!";
-    const about = "I am Matthew Serna";
+    const hello = "Hello! Welcome to my site. ";
+    const about = "I am computer programmer and who loves playing video games, making music, and riding my bike."
 
     const allLearning = learning.map((coursework) => {
         return(
@@ -86,27 +85,10 @@ const Banner = () => {
         );
     });
 
-    const hobbies = {};
-
     return(
         <section id="about" className={classes.root} style={{color: "#fff"}}>
             <div className={classes.banner}>
-                <div>
-                    <h1 style={{color: "#fff"}}>{hello}</h1>
-                    <h1 style={{color: "#fff"}}>{about}</h1>
-                </div>
-                <div style={{
-                    margin: "auto",
-                    marginBottom: "2rem",
-                    marginTop: "2rem",
-                }}>
-                    <div className="polaroid">
-                        <img
-                            src={ProfilePic}
-                            alt="Avatar placeholder"
-                        />
-                    </div>
-                </div>
+                <h1 style={{color: "#fff"}}>{hello}<br/>{about}</h1>
             </div>
             <div className={classes.banner}>
                 <div className={classes.education}>
@@ -116,6 +98,63 @@ const Banner = () => {
                 <div className={classes.education}>
                     <h2>Socials</h2>
                     {localSocials}
+                </div>
+                <div className={classes.education}>
+                    <div>
+                        <h2>Recommended Reads</h2>
+                        <div className={classes.educationLine}>
+                    </div>
+                    <h3>Programming</h3>
+                        <li><u><i>Effective C++: 55 Specific Ways to Improve Your Programs and Designs</i></u> <b>By Scott Meyers</b>
+                        <IconButton
+                            href="https://www.goodreads.com/book/show/105125.Effective_C_"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <OpenInNewIcon/>
+                        </IconButton></li>
+                        <li><u><i>Game Programming Patterns</i></u> <b>By Bystrom Robert</b>
+                        <IconButton
+                            href="https://www.goodreads.com/book/show/15499449-game-programming-patterns"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <OpenInNewIcon/>
+                        </IconButton></li>
+                    <h3>Leisure</h3>
+                        <li><u><i>Kafka on the Shore</i></u> <b>By Haruki Murakami</b>
+                        <IconButton
+                            href="https://www.goodreads.com/book/show/4929.Kafka_on_the_Shore"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <OpenInNewIcon/>
+                        </IconButton></li>
+                        <li><u><i>11/22/63</i></u> <b>By Stephen King</b>
+                        <IconButton
+                            href="https://www.goodreads.com/book/show/10644930-11-22-63"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <OpenInNewIcon/>
+                        </IconButton></li>
+                        <li><u><i>Catch Me If You Can</i></u> <b>By Frank W. Abagnale</b>
+                        <IconButton
+                            href="https://www.goodreads.com/book/show/138269.Catch_Me_If_You_Can"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <OpenInNewIcon/>
+                        </IconButton></li>
+                        <li><u><i>Blood, Sweat, and Pixels</i></u> <b>By Jason Schreier</b>
+                        <IconButton
+                            href="https://www.goodreads.com/book/show/34376766-blood-sweat-and-pixels"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <OpenInNewIcon/>
+                        </IconButton></li>
+                </div>
                 </div>
             </div>
         </section>

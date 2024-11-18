@@ -106,7 +106,7 @@ const Experience = () => {
                     />
                 </VerticalTimeline>
             </div>
-            <div style={{paddingBottom: "20px"}}></div>
+            <div style={{paddingBottom: "50px"}}></div>
         </section>
     );
 }

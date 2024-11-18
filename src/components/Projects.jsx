@@ -22,11 +22,6 @@ const Projects = () => {
         setProjectModalData(null);
     };
 
-    // debugging
-    useEffect(() => {
-        console.log("Show modal:", projectDetailsShow);
-    }, [projectDetailsShow])
-
     const allProjects = projects.map((proj) => {
         return(
             <div
