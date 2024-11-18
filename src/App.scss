@@ -255,7 +255,8 @@ header h1 {
 	display: flex;
     flex-wrap: wrap;
     margin-right: -15px;
-    margin-left: -15px;
+    margin-left: -15px; 
+	position: relative;
 }
 
 .vertical-timeline-element-date {
@@ -349,7 +350,7 @@ header h1 {
 }
 
 #portfolio {
-	background: #5f7c7c;
+	background: #6b8a8a;
 	padding-bottom: 5%;
 }
 
@@ -393,6 +394,7 @@ header h1 {
 }
 
 .section-title {
+	margin-top: 0;
 	padding-top: 5%;
 	padding-bottom: 5%;
 	font: 18px/24px 'opensans-bold', sans-serif;

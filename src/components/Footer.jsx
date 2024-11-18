@@ -5,7 +5,7 @@ import { GitHub, LinkedIn } from "@mui/icons-material";
 const Footer = () => {
     return(
         <footer>
-            <div className="col-md-12">
+            <div className="col-md-12" style={{ paddingTop: "10px" }}>
                 <IconButton 
                     href="http://github.com/mserna"
                     target="_blank"

@@ -123,7 +123,7 @@ const Banner = () => {
                         >
                             <OpenInNewIcon/>
                         </IconButton></li>
-                    <h3>Leisure</h3>
+                    <h3>Novels</h3>
                         <li><u><i>Kafka on the Shore</i></u> <b>By Haruki Murakami</b>
                         <IconButton
                             href="https://www.goodreads.com/book/show/4929.Kafka_on_the_Shore"

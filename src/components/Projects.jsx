@@ -1,10 +1,9 @@
-import React, { useEffect, useState }  from "react";
-import { Modal, ModalClose, ModalDialog, Tooltip, Typography } from "@mui/joy";
+import React, { useState }  from "react";
+import { Box, Modal, ModalClose, ModalDialog, Tooltip, Typography } from "@mui/joy";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { IconButton } from "@mui/material";
+import { Grid2, IconButton } from "@mui/material";
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-import '../index.css';
 import { projects } from "../utils/constants";
 
 const Projects = () => {
@@ -52,65 +51,65 @@ const Projects = () => {
 
     return(
         <section id="portfolio">
-            <div className="col-md-12">
+            <div className="col-md-12" style={{margin: "auto", width: "75%"}}>
                 <h1 className="section-title" style={{color: "#000"}}>
                     <span>{sectionName}</span>
                 </h1>
-                <div className="col-md-12 mx-auto" style={{display: "flex"}}>
-                    <div className="row mx-auto">
+                <Box sx={{ width: "100%" }}>
+                    <Grid2 sx={{justifyContent: "center"}}container rowSpacing={1} columnSpacing={{xs: 1, sm: 2, md: 3 }}>
                         {allProjects}
-                    </div>
-                </div>
+                    </Grid2>
+                </Box>
                 {projectModalData && 
-                <Modal
-                    open={projectDetailsShow}
-                    onClose={detailsModalClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                >
-                    <ModalDialog>
-                        <ModalClose />
-                        <div className="col-md-12">
-                            <div className="col-md-10 mx-auto modal-content" style={{ paddingBottom: "50px" }}>
-                                    <img
-                                        src={projectModalData.gif ? projectModalData.gif : projectModalData.image}
-                                        alt="projectImages"
-                                        height="360"
-                                        style={{marginBottom: 0, paddingBottom: 0, position: 'relative', objectFit: "cover"}}
-                                    />
+                    <Modal
+                        open={projectDetailsShow}
+                        onClose={detailsModalClose}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                    >
+                        <ModalDialog>
+                            <ModalClose />
+                            <div className="col-md-12">
+                                <div className="col-md-10 mx-auto modal-content" style={{ paddingBottom: "50px" }}>
+                                        <img
+                                            src={projectModalData.gif ? projectModalData.gif : projectModalData.image}
+                                            alt="projectImages"
+                                            height="360"
+                                            style={{marginBottom: 0, paddingBottom: 0, position: 'relative', objectFit: "cover"}}
+                                        />
+                                </div>
+                                <div className="col-md-10 mx-auto" style={{ textAlign: "center" }}>
+                                    <h2 style={{ padding: "5px 5px 0 5px" }}>
+                                        {projectModalData.name}
+                                        {projectModalData.link &&
+                                            <Tooltip title="Demo">
+                                                <IconButton 
+                                                    href={projectModalData.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <OpenInNewIcon/>
+                                                </IconButton>
+                                            </Tooltip>
+                                        }
+                                        {projectModalData.github &&
+                                            <Tooltip title="Source Code">
+                                                <IconButton
+                                                    href={projectModalData.github}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <GitHubIcon/>
+                                                </IconButton>
+                                            </Tooltip>
+                                        }
+                                    </h2>
+                                    <Typography sx={{fontSize: "1.5em", textAlign: "center"}}>{projectModalData.description}</Typography>
+                                    <Typography>{projectModalData.tech}</Typography>
+                                </div>
                             </div>
-                            <div className="col-md-10 mx-auto" style={{ textAlign: "center" }}>
-                                <h2 style={{ padding: "5px 5px 0 5px" }}>
-                                    {projectModalData.name}
-                                    {projectModalData.link &&
-                                        <Tooltip title="Demo">
-                                            <IconButton 
-                                                href={projectModalData.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <OpenInNewIcon/>
-                                            </IconButton>
-                                        </Tooltip>
-                                    }
-                                    {projectModalData.github &&
-                                        <Tooltip title="Source Code">
-                                            <IconButton
-                                                href={projectModalData.github}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <GitHubIcon/>
-                                            </IconButton>
-                                        </Tooltip>
-                                    }
-                                </h2>
-                                <Typography sx={{fontSize: "1.5em", textAlign: "center"}}>{projectModalData.description}</Typography>
-                                <Typography>{projectModalData.tech}</Typography>
-                            </div>
-                        </div>
-                        </ModalDialog>
-                </Modal>
+                            </ModalDialog>
+                    </Modal>
                 }
             </div>
         </section>
