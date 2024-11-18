@@ -5,7 +5,6 @@ import CiscoLogo from "../resources/cisco.png";
 import AutodeskLogo from "../resources/autodesk.png";
 import VitalLogo from "../resources/vital-logo.svg";
 import BFLogo from "../resources/bf.png";
-import SDSLogo from "../resources/sds_light.png";
 import GithubLogo from "../resources/git-white.png";
 import PitcherPlots from "../resources/pitcher-plots.png";
 import Wridr from "../resources/wridr.png";
@@ -13,6 +12,7 @@ import SFSULogo from "../resources/sfsu.png";
 import CourseraLogo from "../resources/coursera.png";
 import Youtube from "../resources/youtube.png";
 import PitcherVSGif from "../resources/pitchervs.gif";
+import MLBTheShowGif from "../resources/mlbtheshow.gif";
 
 export const timeout = 1000;
 export const timeout2 = 2500;
@@ -42,24 +42,28 @@ export const socials = [
 
 export const work = [
     {
-        company: "Sony San Diego Studio",
+        company: "Sony Interactive Entertainment | San Diego Studio",
         position: "Frontend Logic Programmer",
         date: "2022-Present",
         url: "https://sonysandiegostudio.games/",
-        image: SDSLogo,
+        app: "https://store.playstation.com/en-us/product/UP9000-CUSA43942_00-MLBTHESHOW24SHIP",
+        image: MLBTheShowGif,
         technologies: [
+            "C++",
             "Perforce(P4V/Swarm)",
             "Visual Studio",
         ],
         mainTech: [
             "C++"
         ],
+        description: "Working on the MLB The Show series, starting with '23. Developing yearly features, improving existing logic and enhancing user exeperience thoughout the FE modes.",
     },
     {
         company: "Element Science",
         position: "Software Engineer II",
         date: "2019-2022",
         url: "https://www.elementscience.com/",
+        app: "https://apps.apple.com/us/app/jewel-by-element-science/id1488391826",
         image: ESLogo,
         technologies: [
             "Flask",
@@ -68,6 +72,7 @@ export const work = [
             "PostgreSQL",
             "Fastlane",
             "Jenkins",
+            "CoreBluetooth",
             "AWS",
         ],
         mainTech: [
@@ -75,6 +80,7 @@ export const work = [
             "ReactJS",
             "Python",
         ],
+        description: "Developed the Jewel iOS mobile application allowing patients to monitor their device as well as send back crucial data for doctors. Developed back end infrastructure for internal and external clients.",
     },
     {
         company: "Cisco",
@@ -90,6 +96,7 @@ export const work = [
         mainTech: [
             "Python"
         ],
+        description: "Developed automation tests to test Cisco Intersight web platform.",
     },
     {
         company: "Autodesk",
@@ -106,6 +113,7 @@ export const work = [
             "Python",
             "NodeJS",
         ],
+        description: "Developed and deployed ETL processes using AWS lambdas, across Autodesk infrastructure teams, storing data into multiple data sources for data visualization using Grafana.",
     },
     {
         company: "Vital Enterprises",
@@ -116,12 +124,12 @@ export const work = [
         technologies: [
             "Selenium",
             "Puppeteer",
-            "Visual Studio",
         ],
         mainTech: [
             "Python",
             "NodeJS",
         ],
+        description: "Developed automation tests for web clients using in order to optimize testing on our web client.",
     },
     {
         company: "Blackfire Research",
@@ -140,6 +148,7 @@ export const work = [
             "C++",
             "C"
         ],
+        description: "Developed Blackfire Windows desktop application. Created test plans for Blackfire firmware software.",
     },
 ];
 

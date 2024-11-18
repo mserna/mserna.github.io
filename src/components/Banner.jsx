@@ -1,10 +1,9 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-
-import { learning, socials} from "../utils/constants";
-import ProfilePic from "../resources/profile.png";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { IconButton } from "@mui/material";
+
+import { learning, socials} from "../utils/constants";
 
 const useStyles = makeStyles({
     root: {
@@ -49,7 +48,10 @@ const useStyles = makeStyles({
 const Banner = () => {
     const classes = useStyles();
     const hello = "Hello! Welcome to my site. ";
-    const about = "I am computer programmer and who loves playing video games, making music, and riding my bike."
+    const about = "I am computer programmer who loves";
+    const hobby1 = " playing and developing video games";
+    const hobby2 = ", making music";
+    const hobby3 = " and riding my bike.";
 
     const allLearning = learning.map((coursework) => {
         return(
@@ -88,7 +90,7 @@ const Banner = () => {
     return(
         <section id="about" className={classes.root} style={{color: "#fff"}}>
             <div className={classes.banner}>
-                <h1 style={{color: "#fff"}}>{hello}<br/>{about}</h1>
+                <h1 style={{color: "#fff"}}>{hello}<br/>{about}{hobby1}{hobby2}{hobby3}</h1>
             </div>
             <div className={classes.banner}>
                 <div className={classes.education}>
