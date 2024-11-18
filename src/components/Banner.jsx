@@ -48,7 +48,7 @@ const useStyles = makeStyles({
 const Banner = () => {
     const classes = useStyles();
     const hello = "Hello! Welcome to my site. ";
-    const about = "I am computer programmer who loves";
+    const about = "I am a computer programmer who loves";
     const hobby1 = " playing and developing video games";
     const hobby2 = ", making music";
     const hobby3 = " and riding my bike.";
