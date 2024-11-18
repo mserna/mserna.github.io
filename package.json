@@ -32,7 +32,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build && cp CNAME build",
-    "deploy": "np run predeploy && gh-pages -d build",
+    "deploy": "npm run predeploy && gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
