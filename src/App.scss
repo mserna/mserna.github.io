@@ -175,7 +175,7 @@ header h1 {
 }
 
 .polaroid span {
-	background: #ffffff;
+	background: #cee0e0;
 	display: inline-block;
 	margin: 55px 75px 30px;
 	padding: 15px 15px 30px;
@@ -433,12 +433,16 @@ footer a:focus {
 	font-size: 22px;
 }
 
+.banner-icon {
+	max-width: 3em;
+}
+
 .devicon-devicon-plain {
 	max-width: 5em;
 }
 
 .devicon-devicon-plain-about {
-	max-width: 10em;
+	max-width: 3em;
 }
   
 /* if you want to change the original color */

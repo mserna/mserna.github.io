@@ -1,25 +1,24 @@
 import React from "react";
 import { IconButton } from "@mui/material";
-import InstagramIcon from '@mui/icons-material/Instagram';
-import { GitHub } from "@mui/icons-material";
+import { GitHub, LinkedIn } from "@mui/icons-material";
 
 const Footer = () => {
     return(
         <footer>
             <div className="col-md-12">
                 <IconButton 
-                    href="www.github.com/mserna"
+                    href="http://github.com/mserna"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     <GitHub/>
                 </IconButton>
                 <IconButton 
-                    href="www.github.com/mserna"
+                    href="https://www.linkedin.com/in/matthew-serna-ruiz-46a1a073/"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <InstagramIcon/>
+                    <LinkedIn/>
                 </IconButton>
 
                 <div className="copyright py-4 text-center">
