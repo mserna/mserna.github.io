@@ -1,26 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.8b7b107c.css",
-    "main.js": "/static/js/main.6c66f616.js",
-    "static/js/787.3d50fef3.chunk.js": "/static/js/787.3d50fef3.chunk.js",
-    "static/media/HobbyMe.png": "/static/media/HobbyMe.a0b2908ab710d37b30e1.png",
+    "main.css": "/static/css/main.81a1d58f.css",
+    "main.js": "/static/js/main.e1e20814.js",
+    "static/js/488.ca750297.chunk.js": "/static/js/488.ca750297.chunk.js",
+    "static/media/mlbtheshow.gif": "/static/media/mlbtheshow.af0b630193e1833f8652.gif",
+    "static/media/pitchervs.gif": "/static/media/pitchervs.3205c8101fe25005c0da.gif",
+    "static/media/wridr.png": "/static/media/wridr.6615b4b4e430dfdbd73f.png",
+    "static/media/unreal.png": "/static/media/unreal.d359f763fa8e40f7bcc0.png",
+    "static/media/linkedin.png": "/static/media/linkedin.b1bebb391a157454d569.png",
     "static/media/es.jpg": "/static/media/es.cc5a92076861761dcfb7.jpg",
     "static/media/sfsu.png": "/static/media/sfsu.440d9b3ff6a1e7441c8e.png",
     "static/media/pitcher-plots.png": "/static/media/pitcher-plots.ba296d731355d7c6e6dd.png",
-    "static/media/coursera.svg": "/static/media/coursera.06864f158d7818658b295c722c9cf91c.svg",
-    "static/media/wridr.png": "/static/media/wridr.26d8d4118f08652b131c.png",
+    "static/media/coursera.png": "/static/media/coursera.16fc3d0e30de8c9d2c08.png",
+    "static/media/youtube.png": "/static/media/youtube.22fe6c0553c6d310e2ec.png",
     "static/media/git-white.png": "/static/media/git-white.5e4fd30be8f61604c8e1.png",
     "static/media/autodesk.png": "/static/media/autodesk.8f4e695aa11e31d460fd.png",
     "static/media/cisco.png": "/static/media/cisco.2d95387a9854f6cc67fa.png",
-    "static/media/sds_light.png": "/static/media/sds_light.f7bde2690befccdb4d7d.png",
     "static/media/vital-logo.svg": "/static/media/vital-logo.b089e9c4319ec0be12492f84cf259d63.svg",
     "index.html": "/index.html",
-    "main.8b7b107c.css.map": "/static/css/main.8b7b107c.css.map",
-    "main.6c66f616.js.map": "/static/js/main.6c66f616.js.map",
-    "787.3d50fef3.chunk.js.map": "/static/js/787.3d50fef3.chunk.js.map"
+    "main.81a1d58f.css.map": "/static/css/main.81a1d58f.css.map",
+    "main.e1e20814.js.map": "/static/js/main.e1e20814.js.map",
+    "488.ca750297.chunk.js.map": "/static/js/488.ca750297.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b7b107c.css",
-    "static/js/main.6c66f616.js"
+    "static/css/main.81a1d58f.css",
+    "static/js/main.e1e20814.js"
   ]
 }
